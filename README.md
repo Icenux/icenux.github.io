@@ -30,7 +30,7 @@ The card on `/apps/`, the footer link, the search entries and the version fields
 
 ## Versions
 
-`version` and `released` in `_data/apps.yml` come from each repo's latest GitHub release. `scripts/update-versions.py` refreshes them (`--check` only reports). The Pages workflow runs it daily and commits changes, so the site stays current without manual edits. Profile pages use `{{ app.version }}`, never a hard-coded number.
+`version` and `released` in `_data/apps.yml` come from each repo's latest GitHub release. `scripts/update-versions.py` refreshes them (`--check` only reports). The Pages workflow runs it during every build (push and daily), so the live site is always current. It does not commit: `main` is protected, so the values in the repository can lag behind — run the script locally and commit through a pull request when you want them updated. Profile pages use `{{ app.version }}`, never a hard-coded number.
 
 ## Local preview
 

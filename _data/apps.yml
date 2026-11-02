@@ -1,5 +1,5 @@
 # One entry per app. Cards, footer links, "Keep exploring" and site search are generated from this file.
-# `version` and `released` are refreshed by scripts/update-versions.py (GitHub Actions, daily).
+# `version` and `released` are refreshed by scripts/update-versions.py during every site build.
 
 - slug: "live-m"
   name: "Live-M"
