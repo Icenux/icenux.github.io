@@ -710,23 +710,8 @@ ul, ol {
   background: rgba(255, 255, 255, 0.025);
 }
 
-.window__dots {
-  display: flex;
-  gap: 6px;
-}
-
-.window__dots i {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #3b2d55;
-}
-
-.window__dots i:nth-child(1) { background: #e879f9; opacity: 0.7; }
-.window__dots i:nth-child(2) { background: #a78bfa; opacity: 0.7; }
-.window__dots i:nth-child(3) { background: #6ee7b7; opacity: 0.55; }
-
 .window__title {
+  order: 1;
   flex: 1;
   text-align: center;
   color: var(--muted-2);
@@ -735,6 +720,7 @@ ul, ol {
 }
 
 .window__badge {
+  order: 2;
   padding: 2px 8px;
   border: 1px solid rgba(196, 168, 255, 0.18);
   border-radius: 100px;
@@ -833,7 +819,7 @@ ul, ol {
 }
 
 .float-card--1 {
-  top: 18px;
+  top: 38%;
   right: -14px;
   animation: float 7s ease-in-out infinite;
 }
@@ -1885,9 +1871,7 @@ ul, ol {
   }
 
   .float-card--1 {
-    top: -10px;
-    right: -2px;
-    padding: 8px 11px;
+    display: none;
   }
 
   .float-card--2 {
@@ -2663,37 +2647,15 @@ ul, ol {
   background: rgba(255, 255, 255, 0.045);
 }
 
-.shot-frame__dots {
-  display: inline-flex;
-  gap: 6px;
-}
-
-.shot-frame__dots i {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(196, 168, 255, 0.28);
-}
-
-.shot-frame__dots i:first-child {
-  background: rgba(248, 113, 113, 0.65);
-}
-
-.shot-frame__dots i:nth-child(2) {
-  background: rgba(251, 191, 36, 0.65);
-}
-
-.shot-frame__dots i:nth-child(3) {
-  background: rgba(110, 231, 183, 0.65);
-}
-
 .shot-frame__title {
+  order: 1;
   color: var(--muted);
   font-size: 0.68rem;
   letter-spacing: 0.04em;
 }
 
 .shot-frame__badge {
+  order: 2;
   margin-left: auto;
   padding: 3px 9px;
   border: 1px solid rgba(196, 168, 255, 0.18);
@@ -3537,5 +3499,88 @@ ul, ol {
     filter: none;
     animation: none;
     will-change: auto;
+  }
+}
+
+/* Window controls, Linux style: minimize / maximize / close as round buttons on the right of the
+   title bar (GNOME-like), not the three coloured dots on the left. Drawn in CSS only. */
+.window__dots,
+.shot-frame__dots {
+  order: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: 4px;
+  color: var(--muted);
+}
+
+.window__dots i,
+.shot-frame__dots i {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.window__dots i::before,
+.window__dots i::after,
+.shot-frame__dots i::before,
+.shot-frame__dots i::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  box-sizing: border-box;
+  background: currentColor;
+}
+
+/* minimize */
+.window__dots i:nth-child(1)::before,
+.shot-frame__dots i:nth-child(1)::before {
+  width: 8px;
+  height: 1.5px;
+  margin: 2px 0 0 -4px;
+  border-radius: 1px;
+}
+
+/* maximize */
+.window__dots i:nth-child(2)::before,
+.shot-frame__dots i:nth-child(2)::before {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border: 1.5px solid currentColor;
+  border-radius: 1.5px;
+  background: transparent;
+}
+
+/* close */
+.window__dots i:nth-child(3)::before,
+.window__dots i:nth-child(3)::after,
+.shot-frame__dots i:nth-child(3)::before,
+.shot-frame__dots i:nth-child(3)::after {
+  width: 9px;
+  height: 1.5px;
+  margin: -0.75px 0 0 -4.5px;
+  border-radius: 1px;
+}
+
+.window__dots i:nth-child(3)::before,
+.shot-frame__dots i:nth-child(3)::before {
+  transform: rotate(45deg);
+}
+
+.window__dots i:nth-child(3)::after,
+.shot-frame__dots i:nth-child(3)::after {
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 600px) {
+  .window__dots i,
+  .shot-frame__dots i {
+    width: 16px;
+    height: 16px;
   }
 }
