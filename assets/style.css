@@ -1601,9 +1601,8 @@ ul, ol {
 
 .js .reveal {
   opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
-  transition-delay: calc(var(--i, 0) * 0.09s);
+  transform: translateY(20px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
 }
 
 .js .reveal.is-visible {
@@ -3489,3 +3488,13 @@ ul, ol {
 .app-tag__icon--sgc { color: #fcd34d; background: rgba(252, 211, 77, 0.1); }
 .next-app__icon--displays { color: #5eead4; background: rgba(94, 234, 212, 0.09); }
 .next-app__icon--sgc { color: #fcd34d; background: rgba(252, 211, 77, 0.09); }
+
+/* Phones: the blurred, animated background blobs are costly to paint while scrolling. They are
+   already soft radial gradients, so drop the blur and the motion there. */
+@media (max-width: 760px), (hover: none) {
+  .bg__blob {
+    filter: none;
+    animation: none;
+    will-change: auto;
+  }
+}

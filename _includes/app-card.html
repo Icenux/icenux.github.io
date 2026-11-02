@@ -14,7 +14,7 @@
   </span>
   {%- else -%}
   <span class="app-card__preview{% if a.preview.portrait %} app-card__preview--portrait{% endif %}">
-    <img src="/{{ a.preview.src }}" alt="{{ a.preview.alt | escape }}" width="{{ a.preview.width }}" height="{{ a.preview.height }}" loading="lazy">
+    <img src="/{{ a.preview.src }}" alt="{{ a.preview.alt | escape }}" width="{{ a.preview.width }}" height="{{ a.preview.height }}" loading="lazy" decoding="async">
   </span>
   {%- endif %}
   <span class="app-card__body">

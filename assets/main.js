@@ -61,10 +61,19 @@
   if ("IntersectionObserver" in window && !prefersReduced) {
     var revealObserver = new IntersectionObserver(
       function (entries) {
+        // Stagger only the elements that appear together (a row of cards), never by list position:
+        // a card that scrolls into view on its own must not wait for the ones above it.
+        var batch = 0;
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            revealObserver.unobserve(entry.target);
+            var el = entry.target;
+            if (batch > 0) {
+              el.style.transitionDelay = Math.min(batch, 4) * 70 + "ms";
+              setTimeout(function () { el.style.transitionDelay = ""; }, 900);
+            }
+            batch++;
+            el.classList.add("is-visible");
+            revealObserver.unobserve(el);
           }
         });
       },
