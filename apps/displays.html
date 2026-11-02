@@ -1,0 +1,210 @@
+---
+title: "displays — monitor layout for Sway and Hyprland | Icenux"
+description: "displays is a terminal UI for managing external monitor layout on Sway and Hyprland: extend or mirror, placement, scale and outputs, with a saved layout that survives restarts."
+permalink: /apps/displays/
+nav: apps
+og_type: article
+app: displays
+next: [sway-desktop-stats, scrv]
+---
+{% assign app = site.data.apps | where: "slug", page.app | first %}
+    <section class="app-hero">
+      <div class="container">
+        <a class="back-link" href="/apps/">← All apps</a>
+        <div class="app-hero__inner">
+          <div class="app-hero__copy">
+            <span class="app-tag"><span class="app-tag__icon app-tag__icon--displays"><svg viewBox="0 0 24 24" aria-hidden="true">{{ app.icon_svg }}</svg></span>Display tool</span>
+            <h1>displays<span class="dot-end">.</span></h1>
+            <p class="lede">Your external monitor layout, from the terminal. Place it, scale it, switch it on or off — with a keypress.</p>
+            <p class="app-hero__text">A terminal UI for Sway and Hyprland: extend or mirror, put the external monitor left, right, above or below the laptop, and pick a scale the compositor will actually accept. Nothing is applied until you press a key.</p>
+            <div class="app-hero__actions">
+              <a class="btn btn--primary" href="#download">Install displays <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="https://github.com/{{ app.repo }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z" fill="currentColor"/></svg> GitHub</a>
+            </div>
+            <ul class="app-facts">
+              <li><span>Version</span><strong>v{{ app.version }}</strong></li>
+              <li><span>Platform</span><strong>Sway / Hyprland</strong></li>
+              <li><span>Written in</span><strong>Bash</strong></li>
+              <li><span>License</span><strong>MIT</strong></li>
+            </ul>
+          </div>
+          <figure class="app-hero__shot">
+            <div class="shot-frame shot-frame--terminal">
+              <div class="shot-frame__bar">
+                <span class="shot-frame__dots"><i></i><i></i><i></i></span>
+                <span class="shot-frame__title">displays — sway</span>
+                <span class="shot-frame__badge">v{{ app.version }}</span>
+              </div>
+              <img src="/assets/apps/displays/screenshot.png" alt="displays running on Sway: outputs, mode, external monitor placement and scale" width="1500" height="980">
+            </div>
+            <figcaption>One screen for outputs, mode, placement and scale — with the keys listed at the bottom.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="kicker">What it does</span>
+            <h2>Place. Scale.<br>Keep it<span class="dot-end">.</span></h2>
+          </div>
+          <p>The backend is detected automatically at startup and shown in the header. Everything above it — layout math, scale snapping and the UI — is shared.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="13" height="9" rx="1.5"/><rect x="9" y="11" width="13" height="9" rx="1.5"/></svg>
+            </span>
+            <h3>Extend or mirror</h3>
+            <p>Toggle between one big desktop and a mirrored image. Mirror is available on Hyprland only — Sway cannot mirror.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/><path d="m8 7 4-4 4 4M8 17l4 4 4-4M7 8l-4 4 4 4M17 8l4 4-4 4"/></svg>
+            </span>
+            <h3>Placement</h3>
+            <p>Put the external monitor left, right, above or below the laptop panel. Positions are computed for you, so the layout is always anchored with no gaps.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20 20 4"/><path d="M14 4h6v6M10 20H4v-6"/></svg>
+            </span>
+            <h3>Scale that sticks</h3>
+            <p>Cycle 1 / 1.25 / 1.5 / 2, auto-snapped to the nearest value the compositor will accept for that resolution.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+            </span>
+            <h3>Outputs</h3>
+            <p>Both screens, laptop only or external only. With more than one external monitor, <code>e</code> cycles between them.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 4v5h6V4M9 20v-6h6v6"/></svg>
+            </span>
+            <h3>Persistence</h3>
+            <p>Your last layout survives a compositor restart and a monitor being unplugged and replugged, instead of falling back to the default rule.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v5c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+            <h3>Safe by default</h3>
+            <p>Starting it only shows the current state. The first run wires the saved layout into your compositor config and backs the config up first.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section app-section--why">
+      <div class="container">
+        <div class="why-panel reveal">
+          <div>
+            <span class="kicker">Why not edit the config</span>
+            <h2>No more<br>guessing numbers<span class="dot-end">.</span></h2>
+          </div>
+          <div class="why-panel__body">
+            <p>You can edit the config by hand, but you are guessing coordinates and scale values the compositor silently adjusts when they do not divide into whole pixels. displays reads the real state back from the compositor and gives instant feedback instead of a reload-and-check loop.</p>
+            <ul class="check-list check-list--two">
+              <li><strong>sway:</strong> <code>swaymsg output …</code>, saved layout included from your Sway config</li>
+              <li><strong>Hyprland (Lua):</strong> Omarchy 4 “Quattro” and newer</li>
+              <li><strong>Hyprland (classic):</strong> <code>hyprland.conf</code> with <code>hyprctl keyword monitor</code></li>
+              <li>Sway cannot mirror — use <code>wl-mirror</code> next to it if you need that</li>
+              <li><code>r</code> resets to your config defaults and forgets the saved layout</li>
+              <li>Only needs <code>jq</code> plus <code>swaymsg</code> or <code>hyprctl</code></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section" id="screenshots">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="kicker">Screenshots</span>
+            <h2>Two compositors<span class="dot-end">.</span></h2>
+          </div>
+          <p>The same screen on Sway and on Hyprland, where Mirror is available.</p>
+        </div>
+        <div class="shots">
+          <figure class="shot reveal">
+            <img src="/assets/apps/displays/screenshot.png" alt="displays running on Sway, with Mirror greyed out" width="1500" height="980" loading="lazy">
+            <figcaption>Sway — Mirror is greyed out because Sway cannot mirror.</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <img src="/assets/apps/displays/screenshot-mirror.png" alt="displays running on Hyprland, where Mirror is available" width="1500" height="980" loading="lazy">
+            <figcaption>Hyprland — Mirror is available.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section" id="download">
+      <div class="container">
+        <div class="download-panel reveal">
+          <div class="download-panel__copy">
+            <span class="kicker">Install</span>
+            <h2>Install displays<span class="dot-end">.</span></h2>
+            <p>A single Bash script. Copy it to a directory on your <code>PATH</code> and run <code>displays</code>. It needs <code>jq</code> and either <code>swaymsg</code> or <code>hyprctl</code>.</p>
+            <div class="download-actions">
+              <a class="btn btn--primary" href="https://raw.githubusercontent.com/{{ app.repo }}/main/displays" download>Download script <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="https://github.com/{{ app.repo }}/releases/latest" target="_blank" rel="noopener">Releases ↗</a>
+            </div>
+            <p class="download-note">Assumes <code>~/.local/bin</code> is on your <code>PATH</code>.</p>
+          </div>
+          <div class="install-card">
+            <div class="install-card__head">
+              <span>Install and run</span>
+              <button class="copy-btn" type="button" data-copy="cp displays ~/.local/bin/
+chmod +x ~/.local/bin/displays
+displays" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>cp displays ~/.local/bin/
+chmod +x ~/.local/bin/displays
+displays</code></pre>
+            <p class="install-card__foot">Run the first two lines from a checkout of the repository.</p>
+          </div>
+        </div>
+
+        <div class="install-list reveal">
+          <h3 class="install-list__title">Keys</h3>
+          <div class="install-row">
+            <div class="install-row__head">
+              <span>Controls</span>
+            </div>
+            <pre><code>Tab      mirror / extend
+arrows   side of the external monitor
+s        scale (1 / 1.25 / 1.5 / 2)
+o        both / laptop only / external only
+e        next external monitor
+r        reset to your config defaults
+q        quit</code></pre>
+            <p class="install-row__note">Every applied change is written to a state file that is included from your compositor config, so your last choice wins on the next start.</p>
+          </div>
+        </div>
+
+        <div class="spec-grid reveal">
+          <div class="spec"><span>Latest release</span><strong>v{{ app.version }}</strong><small>{{ app.released }}</small></div>
+          <div class="spec"><span>Compositors</span><strong>Sway · Hyprland</strong><small>Detected automatically</small></div>
+          <div class="spec"><span>Requires</span><strong>jq</strong><small>Plus swaymsg or hyprctl</small></div>
+          <div class="spec"><span>License</span><strong>MIT</strong><small>Free to use and modify</small></div>
+        </div>
+
+        <p class="feedback-note reveal">Found a bug or have an idea? <a href="https://github.com/{{ app.repo }}/issues" target="_blank" rel="noopener">Open an issue on GitHub ↗</a></p>
+      </div>
+    </section>
+
+    <section class="app-section app-section--next">
+      <div class="container">
+        <div class="app-next reveal">
+          <span class="kicker">Keep exploring</span>
+          <div class="app-next__grid">
+          {% include next-apps.html %}
+          </div>
+        </div>
+      </div>
+    </section>

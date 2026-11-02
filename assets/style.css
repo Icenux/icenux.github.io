@@ -3481,3 +3481,11 @@ ul, ol {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* displays and SGC Screensaver */
+.app-card__icon--displays { color: #5eead4; background: rgba(94, 234, 212, 0.08); }
+.app-card__icon--sgc { color: #fcd34d; background: rgba(252, 211, 77, 0.08); }
+.app-tag__icon--displays { color: #5eead4; background: rgba(94, 234, 212, 0.1); }
+.app-tag__icon--sgc { color: #fcd34d; background: rgba(252, 211, 77, 0.1); }
+.next-app__icon--displays { color: #5eead4; background: rgba(94, 234, 212, 0.09); }
+.next-app__icon--sgc { color: #fcd34d; background: rgba(252, 211, 77, 0.09); }

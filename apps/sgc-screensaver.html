@@ -1,0 +1,197 @@
+---
+title: "SGC Screensaver — a Stargate Command screensaver for Sway | Icenux"
+description: "SGC Screensaver replaces the Sway idle screen with a looping Stargate Command logo video, fullscreen on every output and synchronized across monitors."
+permalink: /apps/sgc-screensaver/
+nav: apps
+og_type: article
+app: sgc-screensaver
+next: [scrv, displays]
+---
+{% assign app = site.data.apps | where: "slug", page.app | first %}
+    <section class="app-hero">
+      <div class="container">
+        <a class="back-link" href="/apps/">← All apps</a>
+        <div class="app-hero__inner">
+          <div class="app-hero__copy">
+            <span class="app-tag"><span class="app-tag__icon app-tag__icon--sgc"><svg viewBox="0 0 24 24" aria-hidden="true">{{ app.icon_svg }}</svg></span>Screensaver</span>
+            <h1>SGC Screensaver<span class="dot-end">.</span></h1>
+            <p class="lede">When your Sway desktop goes idle, the Stargate Command logo takes over every screen.</p>
+            <p class="app-hero__text">A custom screensaver for Sway and wlroots that replaces the stock idle screen with a looping video of the Stargate Command logo — fullscreen on every output and synchronized across monitors. Built on <code>mpv</code> and <code>swayidle</code>.</p>
+            <div class="app-hero__actions">
+              <a class="btn btn--primary" href="#download">Install it <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="https://github.com/{{ app.repo }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z" fill="currentColor"/></svg> GitHub</a>
+            </div>
+            <ul class="app-facts">
+              <li><span>Version</span><strong>v{{ app.version }}</strong></li>
+              <li><span>Platform</span><strong>Sway / wlroots</strong></li>
+              <li><span>Written in</span><strong>Bash</strong></li>
+              <li><span>License</span><strong>MIT</strong></li>
+            </ul>
+          </div>
+          <figure class="app-hero__shot">
+            <div class="shot-frame shot-frame--terminal">
+              <div class="shot-frame__bar">
+                <span class="shot-frame__dots"><i></i><i></i><i></i></span>
+                <span class="shot-frame__title">SGC Screensaver — fullscreen</span>
+                <span class="shot-frame__badge">v{{ app.version }}</span>
+              </div>
+              <img src="/assets/apps/sgc-screensaver/screenshot.png" alt="SGC Screensaver running fullscreen with the Stargate Command logo" width="1600" height="1000">
+            </div>
+            <figcaption>The looping logo video, fullscreen on an idle Sway desktop.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="kicker">What it does</span>
+            <h2>Idle, then<br>on every screen<span class="dot-end">.</span></h2>
+          </div>
+          <p>A few small scripts and one config snippet — no daemon of its own.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+            </span>
+            <h3>Every output</h3>
+            <p>The launch script starts an <code>mpv</code> instance on each output through <code>swaymsg</code>, fullscreen and in sync across monitors.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg>
+            </span>
+            <h3>Driven by swayidle</h3>
+            <p>A <code>swayidle</code> timeout clause starts it and its resume handler stops it, so plain mouse movement ends the screensaver.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="m8 12 3 3 5-6"/></svg>
+            </span>
+            <h3>Dismiss on input</h3>
+            <p>A key press, click or scroll dismisses it through <code>mpv-input.conf</code>.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+            </span>
+            <h3>Its own window rule</h3>
+            <p>The app ID is <code>org.sgc.screensaver</code>, with a dedicated <code>for_window</code> rule — nothing to piggyback on.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10"/><path d="M8 7a4 4 0 1 1 8 0"/><rect x="9" y="13" width="6" height="8" rx="2"/></svg>
+            </span>
+            <h3>Walker aware</h3>
+            <p>If Walker is installed, it is quit first so its overlay does not stay on top. Without it, that step does nothing.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 16 9 5 9-5"/></svg>
+            </span>
+            <h3>Hyprland version kept</h3>
+            <p>It started as an Omarchy (Hyprland) screensaver. That original lives in <code>legacy-hyprland/</code> for reference.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section app-section--why">
+      <div class="container">
+        <div class="why-panel reveal">
+          <div>
+            <span class="kicker">Under the hood</span>
+            <h2>Not just a port<span class="dot-end">.</span></h2>
+          </div>
+          <div class="why-panel__body">
+            <p>The Hyprland and Sway versions work quite differently. <code>swaymsg focus output</code> does not warp the real cursor, so the Sway version needs no IPC-socket synchronisation between instances and no cursor-position watchdog to avoid false idle-resume triggers.</p>
+            <ul class="check-list check-list--two">
+              <li>Requires Sway, <code>mpv</code> and <code>jq</code></li>
+              <li>Optional: <code>walker</code></li>
+              <li>The video ships in the repository (<code>sgc.mp4</code>)</li>
+              <li>Config snippet is merged into your own Sway config</li>
+              <li>Uninstall is two <code>rm</code> commands and removing the snippet</li>
+              <li>Plain Arch + Sway; Omarchy version kept for reference</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section" id="download">
+      <div class="container">
+        <div class="download-panel reveal">
+          <div class="download-panel__copy">
+            <span class="kicker">Install</span>
+            <h2>Install SGC Screensaver<span class="dot-end">.</span></h2>
+            <p>Clone the repository, copy two scripts and the video into place, then merge <code>sway/sgc-idle.conf</code> (a <code>swayidle</code> timeout clause and a <code>for_window</code> rule) into your own Sway config and run <code>sway reload</code>.</p>
+            <div class="download-actions">
+              <a class="btn btn--primary" href="https://github.com/{{ app.repo }}/archive/refs/heads/main.zip" download>Download source ZIP <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="https://github.com/{{ app.repo }}/releases/latest" target="_blank" rel="noopener">Releases ↗</a>
+            </div>
+            <p class="download-note">Requires Sway, <code>mpv</code> and <code>jq</code>: <code>sudo pacman -S mpv jq</code>.</p>
+          </div>
+          <div class="install-card">
+            <div class="install-card__head">
+              <span>Install from source</span>
+              <button class="copy-btn" type="button" data-copy="git clone https://github.com/{{ app.repo }}.git
+cd arch_SGC_screensaver
+
+mkdir -p ~/.local/bin ~/.local/share/sgc-screensaver
+cp local-bin/sgc-launch-screensaver ~/.local/bin/
+cp local-bin/sgc-kill-screensaver ~/.local/bin/
+chmod +x ~/.local/bin/sgc-launch-screensaver ~/.local/bin/sgc-kill-screensaver
+cp sgc-screensaver/sgc.mp4 ~/.local/share/sgc-screensaver/
+cp sgc-screensaver/mpv-input.conf ~/.local/share/sgc-screensaver/" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>git clone https://github.com/{{ app.repo }}.git
+cd arch_SGC_screensaver
+
+mkdir -p ~/.local/bin ~/.local/share/sgc-screensaver
+cp local-bin/sgc-launch-screensaver ~/.local/bin/
+cp local-bin/sgc-kill-screensaver ~/.local/bin/
+chmod +x ~/.local/bin/sgc-launch-screensaver ~/.local/bin/sgc-kill-screensaver
+cp sgc-screensaver/sgc.mp4 ~/.local/share/sgc-screensaver/
+cp sgc-screensaver/mpv-input.conf ~/.local/share/sgc-screensaver/</code></pre>
+            <p class="install-card__foot">Then merge <code>sway/sgc-idle.conf</code> into <code>~/.config/sway/config</code> and run <code>sway reload</code>.</p>
+          </div>
+        </div>
+
+        <div class="install-list reveal">
+          <h3 class="install-list__title">Uninstall</h3>
+          <div class="install-row">
+            <div class="install-row__head">
+              <span>Remove the files</span>
+              <button class="copy-btn" type="button" data-copy="rm ~/.local/bin/sgc-launch-screensaver ~/.local/bin/sgc-kill-screensaver
+rm -rf ~/.local/share/sgc-screensaver" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>rm ~/.local/bin/sgc-launch-screensaver ~/.local/bin/sgc-kill-screensaver
+rm -rf ~/.local/share/sgc-screensaver</code></pre>
+            <p class="install-row__note">Then remove the <code>timeout 150 …</code> clause and the <code>for_window</code> rule from your Sway config and run <code>sway reload</code>.</p>
+          </div>
+        </div>
+
+        <div class="spec-grid reveal">
+          <div class="spec"><span>Latest release</span><strong>v{{ app.version }}</strong><small>{{ app.released }}</small></div>
+          <div class="spec"><span>Platform</span><strong>Sway / wlroots</strong><small>Plain Arch + Sway</small></div>
+          <div class="spec"><span>Requires</span><strong>mpv · jq</strong><small>Plus swayidle in your setup</small></div>
+          <div class="spec"><span>License</span><strong>MIT</strong><small>Free to use and modify</small></div>
+        </div>
+
+        <p class="feedback-note reveal">Found a bug or have an idea? <a href="https://github.com/{{ app.repo }}/issues" target="_blank" rel="noopener">Open an issue on GitHub ↗</a></p>
+      </div>
+    </section>
+
+    <section class="app-section app-section--next">
+      <div class="container">
+        <div class="app-next reveal">
+          <span class="kicker">Keep exploring</span>
+          <div class="app-next__grid">
+          {% include next-apps.html %}
+          </div>
+        </div>
+      </div>
+    </section>

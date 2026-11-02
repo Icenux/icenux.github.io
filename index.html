@@ -34,14 +34,15 @@ nav: home
             <div class="window__body">
 <pre><code><span class="c-com">// small Linux tools, open source</span>
 <span class="c-key">const</span> <span class="c-var">apps</span> = [
-  <span class="c-str">"Live-M"</span>, <span class="c-str">"repo-doctor"</span>,
-  <span class="c-str">"Sway Stats"</span>, <span class="c-str">"ccc"</span>, <span class="c-str">"scrv"</span>
+{%- for app in site.data.apps %}
+  <span class="c-str">"{{ app.slug }}"</span>{% unless forloop.last %},{% endunless %}
+{%- endfor %}
 ];
 
 <span class="c-key">export</span> <span class="c-key">default</span> <span class="c-fn">ship</span>(apps);
 <span class="c-cursor"></span></code></pre>
               <div class="window__pills">
-                <span class="chip chip--green">● 5 apps</span>
+                <span class="chip chip--green">● {{ site.data.apps | size }} apps</span>
                 <span class="chip">Linux</span>
                 <span class="chip">Open source</span>
               </div>

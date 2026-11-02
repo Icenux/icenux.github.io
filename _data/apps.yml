@@ -114,3 +114,49 @@
   preview_code: |-
     $ scrv    <i># screensaver off</i>
     $ scrv    <i># screensaver on again</i>
+
+- slug: "displays"
+  name: "displays"
+  url: "/apps/displays/"
+  repo: "Icenux/displays"
+  version: "1.0"
+  released: "August 2026"
+  platform: "Sway / Hyprland"
+  icon: "displays"
+  icon_svg: "<rect x=\"2\" y=\"4\" width=\"13\" height=\"9\" rx=\"1.5\"/><rect x=\"9\" y=\"11\" width=\"13\" height=\"9\" rx=\"1.5\"/>"
+  tagline: "Terminal UI for your external monitor layout on Sway and Hyprland — extend or mirror, placement, scale and outputs, with a keypress."
+  kind: "Display tool · Bash"
+  blurb: "Monitor layout for Sway and Hyprland"
+  search_icon: "panel"
+  search_desc: "Terminal UI for external monitor layout on Sway and Hyprland — extend/mirror, side, scale, on/off, with persistence"
+  download_title: "Install displays"
+  download_desc: "Copy the displays script to your PATH"
+  preview:
+    src: "assets/apps/displays/screenshot.png"
+    alt: "displays running on Sway"
+    width: 1500
+    height: 980
+    portrait: false
+
+- slug: "sgc-screensaver"
+  name: "SGC Screensaver"
+  url: "/apps/sgc-screensaver/"
+  repo: "Icenux/arch_SGC_screensaver"
+  version: "1.0.0"
+  released: "September 2026"
+  platform: "Sway"
+  icon: "sgc"
+  icon_svg: "<circle cx=\"12\" cy=\"12\" r=\"9\"/><circle cx=\"12\" cy=\"12\" r=\"5\"/><path d=\"M12 3v3M12 18v3M3 12h3M18 12h3\"/>"
+  tagline: "A Stargate Command screensaver for Sway: a looping logo video, fullscreen on every output and in sync across monitors."
+  kind: "Screensaver · Bash"
+  blurb: "A Stargate Command screensaver for Sway"
+  search_icon: "sparkle"
+  search_desc: "A looping Stargate Command logo screensaver for Sway and wlroots, fullscreen and synchronized on every output"
+  download_title: "Install SGC Screensaver"
+  download_desc: "Clone the repository and copy the scripts and video"
+  preview:
+    src: "assets/apps/sgc-screensaver/screenshot.png"
+    alt: "SGC Screensaver running fullscreen"
+    width: 1600
+    height: 1000
+    portrait: false
