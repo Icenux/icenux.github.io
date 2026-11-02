@@ -1,0 +1,6 @@
+- id: home
+  title: Home
+  url: /
+- id: apps
+  title: Apps
+  url: /apps/

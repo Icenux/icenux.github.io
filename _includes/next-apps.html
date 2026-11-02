@@ -1,0 +1,12 @@
+{%- comment -%} "Keep exploring" links; the slugs come from `next:` in the page front matter. {%- endcomment -%}
+{%- for slug in page.next -%}
+{%- assign a = site.data.apps | where: "slug", slug | first -%}
+<a class="next-app" href="{{ a.url }}">
+  <span class="next-app__icon next-app__icon--{{ a.icon }}"><svg viewBox="0 0 24 24" aria-hidden="true">{{ a.icon_svg }}</svg></span>
+  <span class="next-app__body">
+    <strong>{{ a.name }}</strong>
+    <small>{{ a.blurb }}</small>
+  </span>
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+</a>
+{% endfor -%}

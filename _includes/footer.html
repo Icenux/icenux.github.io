@@ -1,0 +1,30 @@
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a class="brand" href="/" aria-label="Icenux home">
+            <img class="brand__mark" src="/icenux-logo.svg" alt="" width="64" height="64">
+            <span class="brand__word">icenux</span>
+          </a>
+          <p>Software with a cool edge.<br>Made with care, shipped with purpose.</p>
+        </div>
+        <div class="footer__cols">
+          <div>
+            <h3>Apps</h3>
+            <a href="/apps/">All apps</a>
+            {% for app in site.data.apps -%}
+            <a href="{{ app.url }}">{{ app.name }}</a>
+            {% endfor -%}
+          </div>
+          <div>
+            <h3>Elsewhere</h3>
+            <a href="https://github.com/icenux" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year">2026</span> Icenux. All rights reserved.</span>
+        <span class="footer__made">Designed &amp; built by Icenux <span class="pulse"></span></span>
+      </div>
+    </div>
+  </footer>

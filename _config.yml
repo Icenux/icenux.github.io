@@ -1,0 +1,25 @@
+title: Icenux
+description: Open-source Linux tools built as a hobby — a system monitor, a git repo doctor, a Claude Code terminal and more.
+lang: en
+
+# User site: Icenux/icenux.github.io is served from the root of the domain.
+url: "https://icenux.github.io"
+baseurl: ""
+
+# Only plugins that GitHub Pages / actions/jekyll-build-pages allow.
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - scripts
+  - vendor
+  - node_modules
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

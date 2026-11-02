@@ -1,0 +1,184 @@
+---
+title: "Live-M — a lightweight terminal system monitor | Icenux"
+description: "Live-M is a lightweight CLI system monitor for Linux: per-core CPU, RAM, swap, disks, temperatures and Wi-Fi speed without the weight of htop."
+permalink: /apps/live-m/
+nav: apps
+og_type: article
+app: live-m
+next: [repo-doctor, sway-desktop-stats]
+---
+{% assign app = site.data.apps | where: "slug", page.app | first %}
+    <section class="app-hero">
+      <div class="container">
+        <a class="back-link" href="/apps/">← All apps</a>
+        <div class="app-hero__inner">
+          <div class="app-hero__copy">
+            <span class="app-tag"><span class="app-tag__icon app-tag__icon--live"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2.5-7 4 14L16 12h5"/></svg></span>Linux utility</span>
+            <h1>Live-M<span class="dot-end">.</span></h1>
+            <p class="lede">A lightweight terminal system monitor that replaces htop and psensors — and never touches the process list.</p>
+            <p class="app-hero__text">Per-core CPU, memory, swap, disks, temperatures and live Wi-Fi throughput in one calm, colour-coded view. Everything updates in place, so you can leave it open on a second monitor and forget about it.</p>
+            <div class="app-hero__actions">
+              <a class="btn btn--primary" href="#download">Download v{{ app.version }} <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="https://github.com/Luquas95/Live-M" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z" fill="currentColor"/></svg> GitHub</a>
+            </div>
+            <ul class="app-facts">
+              <li><span>Version</span><strong>{{ app.version }}</strong></li>
+              <li><span>Platform</span><strong>Linux</strong></li>
+              <li><span>Runtime</span><strong>Python 3.8+</strong></li>
+              <li><span>License</span><strong>MIT</strong></li>
+            </ul>
+          </div>
+          <figure class="app-hero__shot">
+            <div class="shot-frame shot-frame--terminal">
+              <div class="shot-frame__bar">
+                <span class="shot-frame__dots"><i></i><i></i><i></i></span>
+                <span class="shot-frame__title">livem</span>
+                <span class="shot-frame__badge">live</span>
+              </div>
+              <img src="/assets/apps/live-m/terminal.png" alt="Live-M running in a terminal, showing CPU, memory, disk and temperature panels" width="1464" height="758">
+            </div>
+            <figcaption>Every panel refreshes in place. Colours tell you what needs attention.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="kicker">What it shows</span>
+            <h2>Everything that matters.<br>Nothing that doesn't<span class="dot-end">.</span></h2>
+          </div>
+          <p>Live-M is deliberately not a process explorer. It answers one question well: how is this machine doing right now?</p>
+        </div>
+        <div class="feature-grid">
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="16" rx="1.5"/><rect x="14" y="9" width="6" height="11" rx="1.5"/><path d="M2 20h20"/></svg>
+            </span>
+            <h3>Per-core CPU</h3>
+            <p>Colour-coded usage bars for every core, two columns on wide terminals, plus the overall average and 1/5/15-minute load.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v10H4z"/><path d="M7 10v4M11 10v4M15 10v4M19 10v4"/></svg>
+            </span>
+            <h3>RAM and swap</h3>
+            <p>Used and total memory in GiB with a clear percentage bar for each, so pressure is obvious at a glance.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
+            </span>
+            <h3>Real disks only</h3>
+            <p>Every real mountpoint gets a bar. tmpfs, snap mounts and /boot are filtered out instead of cluttering the panel.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10"/><path d="M8 7a4 4 0 1 1 8 0"/><rect x="9" y="13" width="6" height="8" rx="2"/></svg>
+            </span>
+            <h3>Temperatures</h3>
+            <p>CPU package on a full-width bar, per-core temperatures underneath, and any other detected sensor that reports useful data.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8.5a15 15 0 0 1 20 0"/><path d="M5.5 12a10 10 0 0 1 13 0"/><path d="M9 15.5a5 5 0 0 1 6 0"/><circle cx="12" cy="19" r="1"/></svg>
+            </span>
+            <h3>Live Wi-Fi speed</h3>
+            <p>Current download and upload throughput sit in the header, next to the hostname, without taking over the screen.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-9 12h7l-1 8 9-12h-7z"/></svg>
+            </span>
+            <h3>Lighter than htop</h3>
+            <p>Live-M skips /proc/[pid] entirely. CPU usage stays under 0.5%, which is the whole reason it exists.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section app-section--why">
+      <div class="container">
+        <div class="why-panel reveal">
+          <div>
+            <span class="kicker">Why this exists</span>
+            <h2>Small on purpose<span class="dot-end">.</span></h2>
+          </div>
+          <div class="why-panel__body">
+            <p>htop walks every process in <code>/proc/[pid]/</code> on every refresh. That is useful when you need a process list — and unnecessary weight when you only want the health of the machine.</p>
+            <p>Live-M drops the process iteration completely. The result is a monitor that stays under 0.5% CPU, starts instantly and looks good doing it.</p>
+            <ul class="check-list">
+              <li>Live-updating panels, no flicker</li>
+              <li>Refresh interval adjustable with <kbd>+</kbd> and <kbd>-</kbd></li>
+              <li>Optional <code>--interval</code>, <code>--no-color</code>, <code>--version</code> and <code>--help</code></li>
+              <li>Quit with <kbd>q</kbd> or <kbd>Ctrl</kbd>+<kbd>C</kbd></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section" id="screenshots">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="kicker">Screenshots</span>
+            <h2>One glance, full picture<span class="dot-end">.</span></h2>
+          </div>
+          <p>The demo view above uses sample data so every panel is visible at once.</p>
+        </div>
+        <div class="shots shots--single">
+                    <figure class="shot shot--wide reveal">
+            <img src="/assets/apps/live-m/terminal.png" alt="Full Live-M terminal dashboard with CPU cores, RAM, swap, disks, temperatures and Wi-Fi in the header" width="1464" height="758" loading="lazy">
+            <figcaption>CPU, memory, disks, thermals and network — all in a single terminal window.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section" id="download">
+      <div class="container">
+        <div class="download-panel reveal">
+          <div class="download-panel__copy">
+            <span class="kicker">Download</span>
+            <h2>Install Live-M<span class="dot-end">.</span></h2>
+            <p>Built for Debian, Ubuntu and Linux Mint. The package is small, the dependency list is one package long, and the binary is on your PATH immediately.</p>
+            <div class="download-actions">
+              <a class="btn btn--primary" href="https://raw.githubusercontent.com/Luquas95/Live-M/main/livem_{{ app.version }}.deb" download>Download livem_{{ app.version }}.deb <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="https://github.com/Luquas95/Live-M/releases" target="_blank" rel="noopener">All releases ↗</a>
+            </div>
+            <p class="download-note">Requires Linux, Python 3.8+ and <code>python3-psutil</code>.</p>
+          </div>
+          <div class="install-card">
+            <div class="install-card__head">
+              <span>Install and run</span>
+              <button class="copy-btn" type="button" data-copy="sudo dpkg -i livem_{{ app.version }}.deb &amp;&amp; livem" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>sudo dpkg -i livem_{{ app.version }}.deb
+livem</code></pre>
+            <p class="install-card__foot">Then press <kbd>q</kbd> to quit, or <kbd>+</kbd> / <kbd>-</kbd> to change the refresh interval.</p>
+          </div>
+        </div>
+        <div class="spec-grid reveal">
+          <div class="spec"><span>Package</span><strong>livem_{{ app.version }}.deb</strong><small>Committed in the repository</small></div>
+          <div class="spec"><span>Runs on</span><strong>Debian · Ubuntu · Mint</strong><small>Other distributions from source</small></div>
+          <div class="spec"><span>Dependency</span><strong>python3-psutil</strong><small>Plus Python 3.8 or newer</small></div>
+          <div class="spec"><span>License</span><strong>MIT</strong><small>Free to use and modify</small></div>
+        </div>
+
+        <p class="feedback-note reveal">Found a bug or have an idea? <a href="https://github.com/{{ app.repo }}/issues" target="_blank" rel="noopener">Open an issue on GitHub ↗</a>{% if app.android_repo %} · <a href="https://github.com/{{ app.android_repo }}/issues" target="_blank" rel="noopener">Android app issues ↗</a>{% endif %}</p>
+      </div>
+    </section>
+
+    <section class="app-section app-section--next">
+      <div class="container">
+        <div class="app-next reveal">
+          <span class="kicker">Keep exploring</span>
+          <div class="app-next__grid">
+          {% include next-apps.html %}
+          </div>
+        </div>
+      </div>
+    </section>

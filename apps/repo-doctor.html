@@ -1,0 +1,240 @@
+---
+title: "repo-doctor — audit and safely fix your git repositories | Icenux"
+description: "repo-doctor audits git repositories, explains every finding and prepares safe fixes in a reviewable branch. Push, open a PR and merge only after green CI."
+permalink: /apps/repo-doctor/
+nav: apps
+og_type: article
+app: repo-doctor
+next: [live-m, sway-desktop-stats]
+---
+{% assign app = site.data.apps | where: "slug", page.app | first %}
+    <section class="app-hero">
+      <div class="container">
+        <a class="back-link" href="/apps/">← All apps</a>
+        <div class="app-hero__inner">
+          <div class="app-hero__copy">
+            <span class="app-tag"><span class="app-tag__icon app-tag__icon--doctor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3v6a5 5 0 0 0 10 0V3"/><path d="M10 14v3a4 4 0 0 0 8 0v-2"/><circle cx="18" cy="12" r="2.5"/><path d="M5 3H3.5M15 3h1.5"/></svg></span>Developer tool</span>
+            <h1>repo-doctor<span class="dot-end">.</span></h1>
+            <p class="lede">A doctor for your git repositories. Audit, diagnose and safely treat them — without letting go of the wheel.</p>
+            <p class="app-hero__text">Point repo-doctor at one folder or a hundred. It scores every repository, explains each finding, and prepares fixes as reviewable commits in their own branch. Push, open a PR and merge only when you say so — and only when CI is green.</p>
+            <div class="app-hero__actions">
+              <a class="btn btn--primary" href="#download">Download {{ app.version }} <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="https://github.com/Luquas95/repo-doctor" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z" fill="currentColor"/></svg> GitHub</a>
+            </div>
+            <ul class="app-facts">
+              <li><span>Version</span><strong>{{ app.version }}</strong></li>
+              <li><span>Platform</span><strong>Linux x86_64</strong></li>
+              <li><span>Runtime</span><strong>Standalone</strong></li>
+              <li><span>License</span><strong>MIT</strong></li>
+            </ul>
+          </div>
+          <figure class="app-hero__shot">
+            <div class="shot-frame">
+              <div class="shot-frame__bar">
+                <span class="shot-frame__dots"><i></i><i></i><i></i></span>
+                <span class="shot-frame__title">repo-doctor — triage</span>
+                <span class="shot-frame__badge">{{ app.version }}</span>
+              </div>
+              <img src="/assets/apps/repo-doctor/triage.png" alt="repo-doctor triage screen with repositories grouped into critical, watch, no pulse and healthy bands" width="1600" height="1043">
+            </div>
+            <figcaption>Triage first: every repo in a band, with a score, pulse and forge status.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="kicker">What it does</span>
+            <h2>Diagnose. Treat.<br>Review<span class="dot-end">.</span></h2>
+          </div>
+          <p>A full TUI for the work, a small CLI for CI. Both run entirely offline when you want them to.</p>
+        </div>
+        <div class="feature-grid">
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><rect x="7" y="11" width="3" height="5"/><rect x="12" y="8" width="3" height="8"/><rect x="17" y="5" width="3" height="11"/></svg>
+            </span>
+            <h3>Triage, not a list</h3>
+            <p>Repositories land in four bands — CRITICAL, WATCH, NO PULSE and HEALTHY — with a 0–100 score, commit pulse, git state and forge visibility.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+            </span>
+            <h3>A diagnosis per repo</h3>
+            <p>The repo card explains every finding: what it means, why it matters and the exact manual steps to fix it if you prefer doing it yourself.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10"/><path d="M8 7a4 4 0 1 1 8 0"/><rect x="9" y="13" width="6" height="8" rx="2"/></svg>
+            </span>
+            <h3>Safe treatment</h3>
+            <p>Fixes are built in a temporary index as commits on a new repo-doctor/fixes-<date> branch. Your working tree, index and current branch stay untouched.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v12a3 3 0 0 0 3 3h6"/><path d="m12 15 3 3-3 3"/><circle cx="6" cy="3" r="1.5"/></svg>
+            </span>
+            <h3>Publish with guardrails</h3>
+            <p>Push one fix branch, open a PR/MR on GitHub, GitLab, Gitea or Forgejo, then merge on the forge only after green CI — or fast-forward locally.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg>
+            </span>
+            <h3>Works fully offline</h3>
+            <p>Local checks need nothing but git. Network checks for OSV, PyPI, npm and forge APIs are an optional layer, never a requirement.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 16 9 5 9-5"/></svg>
+            </span>
+            <h3>Also in the box</h3>
+            <p>SBOM export, cleanup through the trash, fast-forward-only sync, scheduled scans, desktop/ntfy/email alerts and a read-only MCP server for AI assistants.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section app-section--why">
+      <div class="container">
+        <div class="why-panel reveal">
+          <div>
+            <span class="kicker">Why this exists</span>
+            <h2>Nothing happens<br>by surprise<span class="dot-end">.</span></h2>
+          </div>
+          <div class="why-panel__body">
+            <p>repo-doctor is built around a simple rule: read freely, write only after an explicit preview and confirmation. Every write action is a separate step, and the state is re-checked immediately before it happens.</p>
+            <ul class="check-list check-list--two">
+              <li>Never force-pushes or rewrites history</li>
+              <li>Never deletes branches, stashes or uncommitted work</li>
+              <li>Secrets and emails stay masked in the UI, reports, logs and MCP</li>
+              <li>Third-party repositories cannot execute code through hooks, filters or config</li>
+              <li>Network access is limited to HTTPS and SSH, with per-host HTTP opt-in</li>
+              <li>Only HTTPS/SSH remotes are fetched or cloned</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section" id="screenshots">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="kicker">Screenshots</span>
+            <h2>From finding to fix<span class="dot-end">.</span></h2>
+          </div>
+          <p>Four screens, one workflow: triage, inspect, treat, publish.</p>
+        </div>
+        <p class="shots-note reveal">The screenshots show the Czech interface. repo-doctor also runs in English — set <code>language = "en"</code> in the config or start it with <code>--lang en</code>.</p>
+        <div class="shots">
+                    <figure class="shot shot--wide reveal">
+            <img src="/assets/apps/repo-doctor/triage.png" alt="repo-doctor triage screen with repository bands and scores" width="1600" height="1043" loading="lazy">
+            <figcaption>Triage — every repo sorted into a band with a score and pulse.</figcaption>
+          </figure>
+                    <figure class="shot reveal">
+            <img src="/assets/apps/repo-doctor/repo-card.png" alt="repo-doctor repository card with diagnosis, explanation and manual fix steps" width="1600" height="1043" loading="lazy">
+            <figcaption>Repo card — the full diagnosis, plus manual repair steps.</figcaption>
+          </figure>
+                    <figure class="shot reveal">
+            <img src="/assets/apps/repo-doctor/treatment.png" alt="repo-doctor treatment screen with a coloured diff and selectable fixes" width="1600" height="1043" loading="lazy">
+            <figcaption>Treatment — a coloured diff, checkboxes and a confirmation dialog.</figcaption>
+          </figure>
+                    <figure class="shot reveal">
+            <img src="/assets/apps/repo-doctor/publish.png" alt="repo-doctor publish screen showing push, pull request and CI status" width="1600" height="1043" loading="lazy">
+            <figcaption>Publish — push, PR, CI status and merge, each as its own step.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section" id="download">
+      <div class="container">
+        <div class="download-panel reveal">
+          <div class="download-panel__copy">
+            <span class="kicker">Download</span>
+            <h2>Install repo-doctor<span class="dot-end">.</span></h2>
+            <p>A standalone Linux x86_64 application. No Python runtime, no virtualenv and no npm — only git is required. The .deb and .rpm packages add the signed Icenux repository, so updates arrive with the rest of your system.</p>
+            <div class="download-actions">
+              <a class="btn btn--primary" href="https://github.com/Luquas95/repo-doctor/releases/latest/download/repo-doctor_amd64.deb" download>Download .deb <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="https://github.com/Luquas95/repo-doctor/releases/latest" target="_blank" rel="noopener">All releases ↗</a>
+            </div>
+            <p class="download-note">Also available as <a href="https://github.com/Luquas95/repo-doctor/releases/latest/download/repo-doctor.x86_64.rpm">RPM</a>, <a href="https://github.com/Luquas95/repo-doctor/releases/latest/download/repo-doctor-linux-x86_64.tar.gz">tarball</a> and <code>repo-doctor-bin</code> on AUR.</p>
+          </div>
+          <div class="install-card">
+            <div class="install-card__head">
+              <span>Debian / Ubuntu / Mint</span>
+              <button class="copy-btn" type="button" data-copy="wget https://github.com/Luquas95/repo-doctor/releases/latest/download/repo-doctor_amd64.deb &amp;&amp; sudo apt install ./repo-doctor_amd64.deb" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>wget https://github.com/Luquas95/repo-doctor/releases/latest/download/repo-doctor_amd64.deb
+sudo apt install ./repo-doctor_amd64.deb
+repo-doctor</code></pre>
+            <p class="install-card__foot">Other platforms and verification commands are below.</p>
+          </div>
+        </div>
+
+        <div class="install-list reveal">
+          <h3 class="install-list__title">Other ways to install</h3>
+                    <div class="install-row">
+            <div class="install-row__head">
+              <span>Fedora · RHEL · Rocky · Alma</span>
+              <button class="copy-btn" type="button" data-copy="sudo dnf install https://github.com/Luquas95/repo-doctor/releases/latest/download/repo-doctor.x86_64.rpm" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>sudo dnf install https://github.com/Luquas95/repo-doctor/releases/latest/download/repo-doctor.x86_64.rpm</code></pre>
+            
+          </div>
+                    <div class="install-row">
+            <div class="install-row__head">
+              <span>Arch Linux (AUR)</span>
+              <button class="copy-btn" type="button" data-copy="yay -S repo-doctor-bin" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>yay -S repo-doctor-bin</code></pre>
+            <p class="install-row__note">Or download PKGBUILD from the latest release and run makepkg -si.</p>
+          </div>
+                    <div class="install-row">
+            <div class="install-row__head">
+              <span>Any Linux x86_64 (no root)</span>
+              <button class="copy-btn" type="button" data-copy="wget https://github.com/Luquas95/repo-doctor/releases/latest/download/repo-doctor-linux-x86_64.tar.gz
+tar xzf repo-doctor-linux-x86_64.tar.gz &amp;&amp; ./repo-doctor/install.sh" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>wget https://github.com/Luquas95/repo-doctor/releases/latest/download/repo-doctor-linux-x86_64.tar.gz
+tar xzf repo-doctor-linux-x86_64.tar.gz && ./repo-doctor/install.sh</code></pre>
+            <p class="install-row__note">Installs to ~/.local/lib and ~/.local/bin.</p>
+          </div>
+                    <div class="install-row">
+            <div class="install-row__head">
+              <span>Verify the install</span>
+              <button class="copy-btn" type="button" data-copy="repo-doctor --version
+repo-doctor checks" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>repo-doctor --version
+repo-doctor checks</code></pre>
+            
+          </div>
+        </div>
+
+        <div class="spec-grid reveal">
+          <div class="spec"><span>Latest release</span><strong>{{ app.version }}</strong><small>{{ app.released }}</small></div>
+          <div class="spec"><span>Architecture</span><strong>Linux x86_64</strong><small>Standalone binary</small></div>
+          <div class="spec"><span>Requires</span><strong>git</strong><small>Everything else is optional</small></div>
+          <div class="spec"><span>Checks</span><strong>60+ built in</strong><small>Security, hygiene, git state, forge</small></div>
+        </div>
+
+        <p class="feedback-note reveal">Found a bug or have an idea? <a href="https://github.com/{{ app.repo }}/issues" target="_blank" rel="noopener">Open an issue on GitHub ↗</a>{% if app.android_repo %} · <a href="https://github.com/{{ app.android_repo }}/issues" target="_blank" rel="noopener">Android app issues ↗</a>{% endif %}</p>
+      </div>
+    </section>
+
+    <section class="app-section app-section--next">
+      <div class="container">
+        <div class="app-next reveal">
+          <span class="kicker">Keep exploring</span>
+          <div class="app-next__grid">
+          {% include next-apps.html %}
+          </div>
+        </div>
+      </div>
+    </section>

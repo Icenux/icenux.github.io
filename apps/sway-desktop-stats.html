@@ -1,0 +1,211 @@
+---
+title: "Sway Desktop Stats — desktop stats that stay behind your windows | Icenux"
+description: "Sway Desktop Stats is a Conky-style system panel for Sway and wlroots, built as a second waybar instance on the bottom layer so it stays behind every window."
+permalink: /apps/sway-desktop-stats/
+nav: apps
+og_type: article
+app: sway-desktop-stats
+next: [live-m, repo-doctor]
+---
+{% assign app = site.data.apps | where: "slug", page.app | first %}
+    <section class="app-hero">
+      <div class="container">
+        <a class="back-link" href="/apps/">← All apps</a>
+        <div class="app-hero__inner app-hero__inner--sway">
+          <div class="app-hero__copy">
+            <span class="app-tag"><span class="app-tag__icon app-tag__icon--sway"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 15h18"/><path d="M8 15V9M13 15v3M18 15v-5"/></svg></span>Wayland widget</span>
+            <h1>Sway DesktopStats<span class="dot-end">.</span></h1>
+            <p class="lede">Conky-style desktop stats for Sway and wlroots — that actually stay behind your windows.</p>
+            <p class="app-hero__text">A second waybar instance on the bottom wlr-layer-shell layer. The Wayland protocol itself guarantees it sits beneath every normal application window, so it never floats over your work the way an XWayland Conky does.</p>
+            <div class="app-hero__actions">
+              <a class="btn btn--primary" href="#download">Get v{{ app.version }} <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="https://github.com/Luquas95/sway_desktop_stats" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z" fill="currentColor"/></svg> GitHub</a>
+            </div>
+            <ul class="app-facts">
+              <li><span>Version</span><strong>1.1.1</strong></li>
+              <li><span>Platform</span><strong>Sway / wlroots</strong></li>
+              <li><span>Written in</span><strong>Bash</strong></li>
+              <li><span>License</span><strong>MIT</strong></li>
+            </ul>
+          </div>
+          <figure class="app-hero__shot app-hero__shot--sway">
+            <div class="shot-frame shot-frame--sway">
+              <div class="shot-frame__bar">
+                <span class="shot-frame__dots"><i></i><i></i><i></i></span>
+                <span class="shot-frame__title">desktop-stats</span>
+                <span class="shot-frame__badge">bottom layer</span>
+              </div>
+              <img src="/assets/apps/sway-desktop-stats/widget.png" alt="Sway Desktop Stats panel showing CPU temperature, memory, disk, battery, network and Docker information" width="560" height="1260">
+            </div>
+            <figcaption>One panel, every signal: thermals, load, battery, network, Docker and top processes.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="kicker">What it shows</span>
+            <h2>A quiet dashboard<br>for your desktop<span class="dot-end">.</span></h2>
+          </div>
+          <p>All panels refresh every second. Every data source is optional and degrades gracefully — a missing tool hides a row or shows a clear fallback instead of breaking the widget.</p>
+        </div>
+        <div class="feature-grid">
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10"/><path d="M8 7a4 4 0 1 1 8 0"/><rect x="9" y="13" width="6" height="8" rx="2"/></svg>
+            </span>
+            <h3>CPU temperature</h3>
+            <p>Package and per-core readings from Intel coretemp, AMD k10temp or zenpower, with a thermal-zone fallback.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="16" rx="1.5"/><rect x="14" y="9" width="6" height="11" rx="1.5"/><path d="M2 20h20"/></svg>
+            </span>
+            <h3>CPU, RAM, swap, disk</h3>
+            <p>Usage bars that shift from green to orange to red as load crosses your thresholds — 60% and 85% by default.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8.5a15 15 0 0 1 20 0"/><path d="M5.5 12a10 10 0 0 1 13 0"/><path d="M9 15.5a5 5 0 0 1 6 0"/><circle cx="12" cy="19" r="1"/></svg>
+            </span>
+            <h3>Network at a glance</h3>
+            <p>Wi-Fi SSID, local IP, public IP, Tailscale IP and live upload/download throughput, all in one block.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 16V9M12 16v-4M16 16v-7"/></svg>
+            </span>
+            <h3>Top processes</h3>
+            <p>The three most CPU-hungry processes on the machine, so you can spot a runaway build without opening a terminal.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 12h2"/></svg>
+            </span>
+            <h3>Battery and uptime</h3>
+            <p>Remaining time or time to full on laptops, plus a plain uptime counter for the current session.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v10H4z"/><path d="M8 11h2M12 11h2M16 11h2"/></svg>
+            </span>
+            <h3>Docker containers</h3>
+            <p>A live count and list of running containers. No Docker installed? The row simply disappears.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section app-section--why">
+      <div class="container">
+        <div class="why-panel reveal">
+          <div>
+            <span class="kicker">Why this exists</span>
+            <h2>Conky can't sit<br>behind Wayland<span class="dot-end">.</span></h2>
+          </div>
+          <div class="why-panel__body">
+            <p>Conky renders through XWayland. Under a wlroots compositor, an XWayland floating window always draws above native Wayland toplevels — no window rule can change that.</p>
+            <p>Sway Desktop Stats sidesteps the problem entirely. It is a second waybar instance running as a <code>wlr-layer-shell</code> surface on the <code>bottom</code> layer, which the protocol guarantees stays under every normal application window.</p>
+            <p>The install wiring targets Sway, but any wlroots compositor with wlr-layer-shell support can run it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section" id="screenshots">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="kicker">Screenshot</span>
+            <h2>The whole panel<span class="dot-end">.</span></h2>
+          </div>
+          <p>A tall, narrow layout built for the side of a desktop — readable without stealing focus.</p>
+        </div>
+        <div class="shots shots--single shots--sway">
+                    <figure class="shot shot--portrait reveal">
+            <img src="/assets/apps/sway-desktop-stats/widget.png" alt="Full Sway Desktop Stats waybar panel with temperatures, usage bars, network, Docker and top processes" width="560" height="1260" loading="lazy">
+            <figcaption>CPU, memory, disk, battery, network, Docker and top processes in one panel.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section" id="download">
+      <div class="container">
+        <div class="download-panel reveal">
+          <div class="download-panel__copy">
+            <span class="kicker">Download</span>
+            <h2>Install Sway Desktop Stats<span class="dot-end">.</span></h2>
+            <p>The installer copies the panel into <code>~/.config/waybar/</code>, adds a guarded launcher to <code>~/.config/sway/scripts/</code>, wires it into your Sway config once, and starts the panel immediately.</p>
+            <div class="download-actions">
+              <a class="btn btn--primary" href="https://github.com/Luquas95/sway_desktop_stats/archive/refs/heads/master.zip" download>Download source ZIP <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="https://github.com/Luquas95/sway_desktop_stats/releases" target="_blank" rel="noopener">All releases ↗</a>
+            </div>
+            <p class="download-note">Requires Sway or another wlroots compositor, plus <code>waybar</code>. Everything else is optional.</p>
+          </div>
+          <div class="install-card">
+            <div class="install-card__head">
+              <span>Install from source</span>
+              <button class="copy-btn" type="button" data-copy="git clone https://github.com/Luquas95/sway_desktop_stats.git
+cd sway_desktop_stats
+./install.sh" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>git clone https://github.com/Luquas95/sway_desktop_stats.git
+cd sway_desktop_stats
+./install.sh</code></pre>
+            <p class="install-card__foot">Remove it again with <code>./uninstall.sh</code>.</p>
+          </div>
+        </div>
+
+        <div class="install-list reveal">
+          <h3 class="install-list__title">Make it yours</h3>
+                    <div class="install-row">
+            <div class="install-row__head">
+              <span>Copy the example config</span>
+              <button class="copy-btn" type="button" data-copy="cp ~/.config/waybar/desktop-stats.conf.example ~/.config/waybar/desktop-stats.conf" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>cp ~/.config/waybar/desktop-stats.conf.example ~/.config/waybar/desktop-stats.conf</code></pre>
+            
+          </div>
+                    <div class="install-row">
+            <div class="install-row__head">
+              <span>Check your output names</span>
+              <button class="copy-btn" type="button" data-copy="swaymsg -t get_outputs" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>swaymsg -t get_outputs</code></pre>
+            <p class="install-row__note">Adjust the "output" fields in desktop-stats.jsonc to match your monitors.</p>
+          </div>
+                    <div class="install-row">
+            <div class="install-row__head">
+              <span>Remove it again</span>
+              <button class="copy-btn" type="button" data-copy="./uninstall.sh" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>./uninstall.sh</code></pre>
+            
+          </div>
+        </div>
+
+        <div class="spec-grid reveal">
+          <div class="spec"><span>Release</span><strong>v{{ app.version }}</strong><small>Source distribution</small></div>
+          <div class="spec"><span>Compositor</span><strong>Sway / wlroots</strong><small>wlr-layer-shell required</small></div>
+          <div class="spec"><span>Required</span><strong>waybar</strong><small>This is a waybar instance</small></div>
+          <div class="spec"><span>Optional</span><strong>Docker · Tailscale</strong><small>iwd/nmcli · curl · sensors</small></div>
+        </div>
+
+        <p class="feedback-note reveal">Found a bug or have an idea? <a href="https://github.com/{{ app.repo }}/issues" target="_blank" rel="noopener">Open an issue on GitHub ↗</a>{% if app.android_repo %} · <a href="https://github.com/{{ app.android_repo }}/issues" target="_blank" rel="noopener">Android app issues ↗</a>{% endif %}</p>
+      </div>
+    </section>
+
+    <section class="app-section app-section--next">
+      <div class="container">
+        <div class="app-next reveal">
+          <span class="kicker">Keep exploring</span>
+          <div class="app-next__grid">
+          {% include next-apps.html %}
+          </div>
+        </div>
+      </div>
+    </section>

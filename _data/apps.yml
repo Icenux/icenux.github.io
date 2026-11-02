@@ -1,0 +1,116 @@
+# One entry per app. Cards, footer links, "Keep exploring" and site search are generated from this file.
+# `version` and `released` are refreshed by scripts/update-versions.py (GitHub Actions, daily).
+
+- slug: "live-m"
+  name: "Live-M"
+  url: "/apps/live-m/"
+  repo: "Luquas95/Live-M"
+  version: "2.0"
+  released: "August 2026"
+  platform: "Linux"
+  icon: "live"
+  icon_svg: "<path d=\"M3 12h4l2.5-7 4 14L16 12h5\"/>"
+  tagline: "A lightweight terminal system monitor. Per-core CPU, memory, disks, temperatures and Wi-Fi — without ever touching the process list."
+  kind: "System monitor · Python"
+  blurb: "Lightweight terminal system monitor"
+  search_icon: "terminal"
+  search_desc: "A lightweight terminal system monitor for Linux — CPU, memory, disks, temperatures and Wi-Fi"
+  download_title: "Download Live-M"
+  download_desc: "Install the Live-M Debian package and start monitoring"
+  preview:
+    src: "assets/apps/live-m/terminal.png"
+    alt: "Live-M terminal dashboard"
+    width: 1464
+    height: 758
+    portrait: false
+
+- slug: "repo-doctor"
+  name: "repo-doctor"
+  url: "/apps/repo-doctor/"
+  repo: "Luquas95/repo-doctor"
+  version: "0.4.0"
+  released: "November 2026"
+  platform: "Linux x86_64"
+  icon: "doctor"
+  icon_svg: "<path d=\"M5 3v6a5 5 0 0 0 10 0V3\"/><path d=\"M10 14v3a4 4 0 0 0 8 0v-2\"/><circle cx=\"18\" cy=\"12\" r=\"2.5\"/><path d=\"M5 3H3.5M15 3h1.5\"/>"
+  tagline: "Audit a folder full of git repos, understand every finding, and prepare safe fixes in their own branch. Push and merge only when you decide."
+  kind: "Developer tool · Standalone"
+  blurb: "Audit and safely fix your git repositories"
+  search_icon: "stethoscope"
+  search_desc: "Audit and safely fix git repositories — triage, diagnosis, treatment and PRs"
+  download_title: "Download repo-doctor"
+  download_desc: "Install repo-doctor as a deb, rpm, tarball or from AUR"
+  preview:
+    src: "assets/apps/repo-doctor/triage.png"
+    alt: "repo-doctor triage screen"
+    width: 1600
+    height: 1043
+    portrait: false
+
+- slug: "sway-desktop-stats"
+  name: "Sway Desktop Stats"
+  url: "/apps/sway-desktop-stats/"
+  repo: "Luquas95/sway_desktop_stats"
+  version: "1.1.1"
+  released: "September 2026"
+  platform: "Sway"
+  icon: "sway"
+  icon_svg: "<rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2.5\"/><path d=\"M3 15h18\"/><path d=\"M8 15V9M13 15v3M18 15v-5\"/>"
+  tagline: "Conky-style desktop stats for Sway and wlroots that actually stay behind your windows. Thermals, load, network, Docker and top processes."
+  kind: "Desktop widget · Bash"
+  blurb: "Desktop stats that stay behind your windows"
+  search_icon: "panel"
+  search_desc: "Conky-style desktop stats for Sway and wlroots that stay behind your windows"
+  download_title: "Download Sway Desktop Stats"
+  download_desc: "Install the waybar-based desktop panel from source"
+  preview:
+    src: "assets/apps/sway-desktop-stats/widget.png"
+    alt: "Sway Desktop Stats panel"
+    width: 560
+    height: 1260
+    portrait: true
+
+- slug: "ccc"
+  name: "ccc"
+  url: "/apps/ccc/"
+  repo: "Luquas95/ccc_TUI"
+  version: "0.1.5"
+  released: "November 2026"
+  android_repo: "Luquas95/ccc_android"
+  android_version: "0.1.2"
+  platform: "Linux + Android"
+  icon: "ccc"
+  icon_svg: "<path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM8.97 7.93l-3 3L3 15.92l7.94-2.07L5 21l4-4V5l1.96 4L13.73 3z\"/>"
+  tagline: "A terminal home for Claude Code work that keeps going without you. Task queue, usage-limit handling, approvals and an Android client."
+  kind: "Terminal + Android · Python"
+  blurb: "Terminal home for Claude Code work"
+  search_icon: "terminal"
+  search_desc: "A terminal home for Claude Code work — task queue, usage limits, approvals and an Android client"
+  download_title: "Download ccc"
+  download_desc: "Install ccc from the Icenux APT repository, plus the Android app"
+  preview:
+    src: "assets/apps/ccc/conversations.png"
+    alt: "ccc conversations screen"
+    width: 1600
+    height: 899
+    portrait: false
+
+- slug: "scrv"
+  name: "scrv"
+  url: "/apps/scrv/"
+  repo: "Luquas95/scrv"
+  version: "1.5"
+  released: "August 2026"
+  platform: "Linux"
+  icon: "scrv"
+  icon_svg: "<path d=\"M12 3v11M3 12h3v9h13v-3l4 4V7l-4 4H3z\"/>"
+  tagline: "One command toggles the screensaver and screen lock on X11 and Wayland — gsettings, xset and systemd-inhibit layered together."
+  kind: "Screensaver toggle · Bash"
+  blurb: "Toggle the screensaver and screen lock"
+  search_icon: "terminal"
+  search_desc: "Toggle the screensaver and screen lock on Linux — X11 and Wayland"
+  download_title: "Install scrv"
+  download_desc: "Download the scrv bash script"
+  preview_code: |-
+    $ scrv    <i># screensaver off</i>
+    $ scrv    <i># screensaver on again</i>

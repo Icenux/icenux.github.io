@@ -1,0 +1,28 @@
+{%- comment -%} Usage: include app-card.html app=app i=forloop.index0 {%- endcomment -%}
+{%- assign a = include.app -%}
+<a class="app-card app-card--rich reveal" href="{{ a.url }}" style="--i:{{ include.i }}">
+  <span class="app-card__glow"></span>
+  <span class="app-card__top">
+    <span class="app-card__icon app-card__icon--{{ a.icon }}">
+      <svg viewBox="0 0 24 24" aria-hidden="true">{{ a.icon_svg }}</svg>
+    </span>
+    <span class="status">v{{ a.version }} · {{ a.platform }}</span>
+  </span>
+  {% if a.preview_code -%}
+  <span class="app-card__preview app-card__preview--code" aria-hidden="true">
+    <code>{{ a.preview_code }}</code>
+  </span>
+  {%- else -%}
+  <span class="app-card__preview{% if a.preview.portrait %} app-card__preview--portrait{% endif %}">
+    <img src="/{{ a.preview.src }}" alt="{{ a.preview.alt | escape }}" width="{{ a.preview.width }}" height="{{ a.preview.height }}" loading="lazy">
+  </span>
+  {%- endif %}
+  <span class="app-card__body">
+    <span class="app-card__name">{{ a.name }}</span>
+    <span class="app-card__desc">{{ a.tagline }}</span>
+  </span>
+  <span class="app-card__foot">
+    <span>{{ a.kind }}</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </span>
+</a>

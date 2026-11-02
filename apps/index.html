@@ -1,0 +1,28 @@
+---
+title: "Apps — Icenux"
+description: "Apps by Icenux: Live-M, repo-doctor, Sway Desktop Stats, ccc (terminal + Android client), and scrv (screensaver toggle)."
+permalink: /apps/
+nav: apps
+---
+    <section class="page-head">
+      <div class="container">
+        <span class="kicker">The lineup</span>
+        <h1>Apps worth<br>opening daily<span class="dot-end">.</span></h1>
+        <p>Small, focused Linux tools built in the Icenux lab. Each one has a one-page profile with details, install instructions and a direct download.</p>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="apps">
+          {% for app in site.data.apps -%}
+          {% include app-card.html app=app i=forloop.index0 %}
+          {% endfor -%}
+        </div>
+
+        <div class="apps__note reveal">
+          <span class="apps__note-icon">✦</span>
+          <p><strong>Open source, maintained in the open.</strong> Every app links to its source, release notes and a direct download.</p>
+        </div>
+      </div>
+    </section>

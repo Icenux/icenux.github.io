@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="icenux">
+  <title>icenux</title>
+  <defs>
+    <path id="berg" d="M36 90 L40 56 L72 38 L102 54 L136 32 L176 50 L218 40 L226 84 L208 140 L190 192 L170 238 L150 196 L128 224 L106 176 L54 130 Z"/>
+    <clipPath id="bergClip"><use href="#berg"/></clipPath>
+    <linearGradient id="bergFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#cdb9fa"/>
+      <stop offset="1" stop-color="#9d7cea"/>
+    </linearGradient>
+  </defs>
+
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <!-- upside-down iceberg, faceted for a 3D look -->
+    <g clip-path="url(#bergClip)">
+      <use href="#berg" fill="url(#bergFill)"/>
+      <!-- lit facets (light from top-left) -->
+      <path fill="#fff" opacity=".32" d="M36 90 L40 56 L72 38 L102 54 L90 96 Z"/>
+      <path fill="#fff" opacity=".16" d="M102 54 L136 32 L176 50 L140 84 Z"/>
+      <path fill="#fff" opacity=".08" d="M36 90 L90 96 L130 140 L54 130 Z"/>
+      <!-- shaded facets -->
+      <path fill="#2a0e66" opacity=".10" d="M176 50 L218 40 L226 84 L160 110 L140 84 Z"/>
+      <path fill="#2a0e66" opacity=".20" d="M226 84 L208 140 L190 192 L150 196 L130 140 L160 110 Z"/>
+      <path fill="#2a0e66" opacity=".30" d="M190 192 L170 238 L150 196 Z"/>
+      <path fill="#2a0e66" opacity=".16" d="M54 130 L106 176 L128 224 L150 196 L130 140 Z"/>
+      <!-- facet edges -->
+      <path fill="none" stroke="#fff" stroke-width="1.5" opacity=".45" d="M90 96 L102 54 M90 96 L140 84 L176 50 M90 96 L130 140 L54 130 M140 84 L160 110 L226 84 M160 110 L130 140 L150 196 M130 140 L106 176"/>
+    </g>
+    <use href="#berg" fill="none" stroke="#7c4ad8" stroke-width="7"/>
+
+    <!-- tilde (with soft shadow for depth) -->
+    <path fill="none" stroke="#2a0e66" stroke-opacity=".28" stroke-width="12" d="M52 120 C60 96 76 96 86 112 C96 128 112 128 120 104"/>
+    <path fill="none" stroke="#6d3fd0" stroke-width="12" d="M50 114 C58 90 74 90 84 106 C94 122 110 122 118 98"/>
+
+    <!-- tux -->
+    <g transform="translate(160 108) scale(.85)" stroke-width="5">
+      <!-- flippers -->
+      <path fill="#161616" stroke="#161616" d="M-24 -4 C-40 8 -42 24 -35 34 C-28 26 -24 14 -22 6 Z"/>
+      <path fill="#161616" stroke="#161616" d="M24 -4 C40 8 42 24 35 34 C28 26 24 14 22 6 Z"/>
+      <!-- feet -->
+      <path fill="#f5b400" stroke="#d99a00" d="M-26 48 Q-42 50 -40 60 Q-24 64 -8 54 Z"/>
+      <path fill="#f5b400" stroke="#d99a00" d="M26 48 Q42 50 40 60 Q24 64 8 54 Z"/>
+      <!-- body -->
+      <path fill="#161616" stroke="#161616" d="M0 -50 C-18 -50 -24 -32 -24 -16 C-24 -2 -34 14 -38 28 C-42 44 -28 50 0 50 C28 50 42 44 38 28 C34 14 24 -2 24 -16 C24 -32 18 -50 0 -50 Z"/>
+      <!-- belly -->
+      <path fill="#fff" stroke="#fff" stroke-width="3" d="M0 -14 C-14 -6 -18 18 -14 32 C-10 40 10 40 14 32 C18 18 14 -6 0 -14 Z"/>
+      <!-- eyes -->
+      <circle cx="-9" cy="-32" r="5" fill="#fff" stroke="none"/>
+      <circle cx="9" cy="-32" r="5" fill="#fff" stroke="none"/>
+      <circle cx="-8" cy="-32" r="2.2" fill="#161616" stroke="none"/>
+      <circle cx="8" cy="-32" r="2.2" fill="#161616" stroke="none"/>
+      <!-- beak -->
+      <path fill="#f5b400" stroke="#d99a00" stroke-width="3" d="M-11 -22 Q0 -27 11 -22 Q0 -10 -11 -22 Z"/>
+    </g>
+  </g>
+</svg>
