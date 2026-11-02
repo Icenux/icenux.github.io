@@ -19,7 +19,7 @@ next: [repo-doctor, scrv]
             <p class="app-hero__text">Start conversations in any project, queue up tasks and let a background daemon work through them. It waits out usage limits and carries on by itself, asks you when Claude needs approval, commits each finished task — and lets you continue from your phone.</p>
             <div class="app-hero__actions">
               <a class="btn btn--primary" href="#download">Download {{ app.version }} <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              <a class="btn btn--ghost" href="https://github.com/Luquas95/ccc_TUI" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z" fill="currentColor"/></svg> GitHub</a>
+              <a class="btn btn--ghost" href="https://github.com/Icenux/ccc_TUI" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z" fill="currentColor"/></svg> GitHub</a>
             </div>
             <ul class="app-facts">
               <li><span>Version</span><strong>{{ app.version }}</strong></li>
@@ -194,22 +194,22 @@ next: [repo-doctor, scrv]
             <h2>Install ccc<span class="dot-end">.</span></h2>
             <p>Needs Linux with <code>systemd --user</code>, Python 3.12+, the Claude Code CLI (installed and logged in) and <code>tmux</code>. <code>git</code> is optional — for auto-commit and diffs. The package adds the signed Icenux APT repository, so updates arrive with the rest of your system.</p>
             <div class="download-actions">
-              <a class="btn btn--primary" href="https://github.com/Luquas95/ccc_TUI/releases/latest/download/ccc_all.deb" download>Download .deb <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              <a class="btn btn--ghost" href="https://github.com/Luquas95/ccc_TUI/releases/latest" target="_blank" rel="noopener">All releases ↗</a>
+              <a class="btn btn--primary" href="https://github.com/Icenux/ccc_TUI/releases/latest/download/ccc_all.deb" download>Download .deb <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="https://github.com/Icenux/ccc_TUI/releases/latest" target="_blank" rel="noopener">All releases ↗</a>
             </div>
-            <p class="download-note">Android: <a href="https://github.com/Luquas95/ccc_android/releases/latest/download/ccc.apk">ccc.apk</a> from the <a href="https://github.com/Luquas95/ccc_android/releases/latest" target="_blank" rel="noopener">ccc_android releases</a>.</p>
+            <p class="download-note">Android: <a href="https://github.com/Icenux/ccc_android/releases/latest/download/ccc.apk">ccc.apk</a> from the <a href="https://github.com/Icenux/ccc_android/releases/latest" target="_blank" rel="noopener">ccc_android releases</a>.</p>
           </div>
           <div class="install-card">
             <div class="install-card__head">
               <span>Debian / Ubuntu</span>
-              <button class="copy-btn" type="button" data-copy="sudo curl -fsSL https://luquas95.github.io/icenux/icenux.asc -o /usr/share/keyrings/icenux.asc
-echo &#x27;deb [signed-by=/usr/share/keyrings/icenux.asc] https://luquas95.github.io/icenux/apt ./&#x27; | sudo tee /etc/apt/sources.list.d/icenux.list
+              <button class="copy-btn" type="button" data-copy="sudo curl -fsSL https://icenux.github.io/icenux/icenux.asc -o /usr/share/keyrings/icenux.asc
+echo &#x27;deb [signed-by=/usr/share/keyrings/icenux.asc] https://icenux.github.io/icenux/apt ./&#x27; | sudo tee /etc/apt/sources.list.d/icenux.list
 sudo apt update &amp;&amp; sudo apt install ccc
 systemctl --user enable --now ccc ccc-tui
 loginctl enable-linger &quot;$USER&quot;" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
             </div>
-            <pre><code>sudo curl -fsSL https://luquas95.github.io/icenux/icenux.asc -o /usr/share/keyrings/icenux.asc
-echo 'deb [signed-by=/usr/share/keyrings/icenux.asc] https://luquas95.github.io/icenux/apt ./' | sudo tee /etc/apt/sources.list.d/icenux.list
+            <pre><code>sudo curl -fsSL https://icenux.github.io/icenux/icenux.asc -o /usr/share/keyrings/icenux.asc
+echo 'deb [signed-by=/usr/share/keyrings/icenux.asc] https://icenux.github.io/icenux/apt ./' | sudo tee /etc/apt/sources.list.d/icenux.list
 sudo apt update &amp;&amp; sudo apt install ccc
 systemctl --user enable --now ccc ccc-tui
 loginctl enable-linger "$USER"</code></pre>
@@ -222,11 +222,11 @@ loginctl enable-linger "$USER"</code></pre>
           <div class="install-row">
             <div class="install-row__head">
               <span>From a git checkout</span>
-              <button class="copy-btn" type="button" data-copy="git clone https://github.com/Luquas95/ccc_TUI.git ~/ccc
+              <button class="copy-btn" type="button" data-copy="git clone https://github.com/Icenux/ccc_TUI.git ~/ccc
 cd ~/ccc
 bin/install.sh" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
             </div>
-            <pre><code>git clone https://github.com/Luquas95/ccc_TUI.git ~/ccc
+            <pre><code>git clone https://github.com/Icenux/ccc_TUI.git ~/ccc
 cd ~/ccc
 bin/install.sh</code></pre>
             <p class="install-row__note">Creates a virtualenv, writes the <code>systemd --user</code> units and starts the daemon and TUI. Options: <code>--no-tui</code>, <code>--api</code> (for the Android app), <code>--no-start</code>, <code>--no-systemd</code>.</p>
@@ -250,7 +250,7 @@ apksigner verify --print-certs ccc.apk" aria-label="Copy command"><svg viewBox="
             <pre><code>sha256sum -c SHA256SUMS
 gpg --import release-signing-key.asc &amp;&amp; gpg --verify SHA256SUMS.asc SHA256SUMS
 apksigner verify --print-certs ccc.apk</code></pre>
-            <p class="install-row__note">Signing key and certificate fingerprints are listed in the <a href="https://github.com/Luquas95/ccc_android#install" target="_blank" rel="noopener">ccc_android README</a>.</p>
+            <p class="install-row__note">Signing key and certificate fingerprints are listed in the <a href="https://github.com/Icenux/ccc_android#install" target="_blank" rel="noopener">ccc_android README</a>.</p>
           </div>
         </div>
 
