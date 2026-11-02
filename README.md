@@ -32,6 +32,10 @@ The card on `/apps/`, the footer link, the search entries and the version fields
 
 `version` and `released` in `_data/apps.yml` come from each repo's latest GitHub release. `scripts/update-versions.py` refreshes them (`--check` only reports). The Pages workflow runs it during every build (push and daily), so the live site is always current. It does not commit: `main` is protected, so the values in the repository can lag behind — run the script locally and commit through a pull request when you want them updated. Profile pages use `{{ app.version }}`, never a hard-coded number.
 
+## Fonts
+
+Headings use **Chakra Petch** (600, 700) and text uses **Inter** (400, 500, 600), both under the SIL Open Font License (`assets/fonts/OFL-*.txt`). They are served from this site as subset `woff2` files (Latin and Latin Extended-A) — the pages make no requests to Google or other third parties. The two critical files are preloaded in `_layouts/default.html`, the rest use `font-display: swap`.
+
 ## Local preview
 
 ```bash
