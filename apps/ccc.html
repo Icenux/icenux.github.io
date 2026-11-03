@@ -252,6 +252,7 @@ gpg --import release-signing-key.asc &amp;&amp; gpg --verify SHA256SUMS.asc SHA2
 apksigner verify --print-certs ccc.apk</code></pre>
             <p class="install-row__note">Signing key and certificate fingerprints are listed in the <a href="https://github.com/Icenux/ccc_android#install" target="_blank" rel="noopener">ccc_android README</a>.</p>
           </div>
+          {% include verify-rows.html slug=page.app %}
         </div>
 
         <div class="spec-grid reveal">

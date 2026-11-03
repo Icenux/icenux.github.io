@@ -1,0 +1,10 @@
+# Fingerprints of the signing keys. The same values are published in the Icenux repository
+# (keys/fingerprint and keys/<app>.fingerprint), so a visitor can compare two independent places.
+repository:
+  fingerprint: "DED1 2904 B5BA E37D 0661  C626 A72C 50E3 F90C D644"
+ccc:
+  fingerprint: "D5AE 3DC0 F062 9B5B 97E8  1C45 6A16 DF02 11F8 C1A5"
+  key_file: "ccc.asc"
+repo-doctor:
+  fingerprint: "61CB 5447 85F6 CE13 3581  65CD DC0A DD39 ACA4 DB9A"
+  key_file: "repo-doctor.asc"

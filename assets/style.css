@@ -3584,3 +3584,9 @@ ul, ol {
     height: 16px;
   }
 }
+
+/* Fingerprints and checksums: long hex strings must wrap instead of overflowing on phones. */
+.hash {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}

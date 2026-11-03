@@ -5,7 +5,8 @@ name: Pages
 #
 # Besides every push, it runs daily so the site picks up new app releases on its own
 # (scripts/update-versions.py reads the latest release of each app during the build).
-# (GitHub disables scheduled workflows after 60 days without repository activity — re-enable
+# Actions are pinned to a commit SHA (the tag it came from is in the comment); Dependabot proposes
+# updates. (GitHub disables scheduled workflows after 60 days without repository activity — re-enable
 # it in the Actions tab or run it by hand if that ever happens.)
 on:
   push:
@@ -28,7 +29,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       # Versions come straight from the latest GitHub releases on every build, so the live site is
       # current without committing to the protected main branch. _data/apps.yml in the repository
@@ -38,15 +39,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/update-versions.py
 
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
         id: pages
 
-      - uses: actions/jekyll-build-pages@v1
+      - uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697 # v1
         with:
           source: ./
           destination: ./_site
 
-      - uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@de492cf36cbab201753d720ce4f4e336cd688c94 # v1
         with:
           ruby-version: "3.3"
 
@@ -57,7 +58,7 @@ jobs:
           gem install html-proofer --no-document
           htmlproofer ./_site --disable-external --no-enforce-https
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         if: github.event_name != 'pull_request'
 
   deploy:
@@ -69,4 +70,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

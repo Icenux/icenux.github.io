@@ -151,22 +151,27 @@ next: [sway-desktop-stats, scrv]
             <h2>Install displays<span class="dot-end">.</span></h2>
             <p>A single Bash script. Copy it to a directory on your <code>PATH</code> and run <code>displays</code>. It needs <code>jq</code> and either <code>swaymsg</code> or <code>hyprctl</code>.</p>
             <div class="download-actions">
-              <a class="btn btn--primary" href="https://raw.githubusercontent.com/{{ app.repo }}/main/displays" download>Download script <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--primary" href="https://raw.githubusercontent.com/{{ app.repo }}/{{ app.tag }}/displays" download>Download script <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               <a class="btn btn--ghost" href="https://github.com/{{ app.repo }}/releases/latest" target="_blank" rel="noopener">Releases ↗</a>
             </div>
             <p class="download-note">Assumes <code>~/.local/bin</code> is on your <code>PATH</code>.</p>
+            <p class="download-note">SHA-256 of <code>displays</code> at {{ app.tag }}: <code class="hash">{{ app.sha256 }}</code></p>
           </div>
           <div class="install-card">
             <div class="install-card__head">
               <span>Install and run</span>
-              <button class="copy-btn" type="button" data-copy="cp displays ~/.local/bin/
+              <button class="copy-btn" type="button" data-copy="git clone --branch {{ app.tag }} https://github.com/{{ app.repo }}.git
+cd displays
+cp displays ~/.local/bin/
 chmod +x ~/.local/bin/displays
 displays" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
             </div>
-            <pre><code>cp displays ~/.local/bin/
+            <pre><code>git clone --branch {{ app.tag }} https://github.com/{{ app.repo }}.git
+cd displays
+cp displays ~/.local/bin/
 chmod +x ~/.local/bin/displays
 displays</code></pre>
-            <p class="install-card__foot">Run the first two lines from a checkout of the repository.</p>
+            <p class="install-card__foot">The checkout is pinned to the release tag.</p>
           </div>
         </div>
 

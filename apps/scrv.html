@@ -130,19 +130,22 @@ $ scrv    <i># enable screensaver again</i></code>
             <h2>Install scrv<span class="dot-end">.</span></h2>
             <p>A single script — no build step. Download it, make it executable and copy it somewhere on your <code>PATH</code>. Then run <code>scrv</code> to toggle, and <code>scrv</code> again to switch back.</p>
             <div class="download-actions">
-              <a class="btn btn--primary" href="https://raw.githubusercontent.com/Icenux/scrv/main/scrv" download>Download script <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--primary" href="https://raw.githubusercontent.com/Icenux/scrv/{{ app.tag }}/scrv" download>Download script <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               <a class="btn btn--ghost" href="https://github.com/Icenux/scrv/releases/latest" target="_blank" rel="noopener">Releases ↗</a>
             </div>
             <p class="download-note">Needs <code>bash</code> 4+. Optional: <code>xset</code>, <code>dbus-send</code>, <code>gsettings</code>, <code>systemd-inhibit</code>.</p>
+            <p class="download-note">SHA-256 of <code>scrv</code> at {{ app.tag }}: <code class="hash">{{ app.sha256 }}</code></p>
           </div>
           <div class="install-card">
             <div class="install-card__head">
               <span>Any Linux</span>
-              <button class="copy-btn" type="button" data-copy="wget https://raw.githubusercontent.com/Icenux/scrv/main/scrv
+              <button class="copy-btn" type="button" data-copy="wget https://raw.githubusercontent.com/Icenux/scrv/{{ app.tag }}/scrv
+echo &quot;{{ app.sha256 }}  scrv&quot; | sha256sum -c -
 chmod +x scrv
 sudo cp scrv /usr/local/bin/" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
             </div>
-            <pre><code>wget https://raw.githubusercontent.com/Icenux/scrv/main/scrv
+            <pre><code>wget https://raw.githubusercontent.com/Icenux/scrv/{{ app.tag }}/scrv
+echo "{{ app.sha256 }}  scrv" | sha256sum -c -
 chmod +x scrv
 sudo cp scrv /usr/local/bin/</code></pre>
             <p class="install-card__foot">Then run <code>scrv</code> from anywhere.</p>

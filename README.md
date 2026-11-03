@@ -36,6 +36,14 @@ The card on `/apps/`, the footer link, the search entries and the version fields
 
 Headings use **Chakra Petch** (600, 700) and text uses **Inter** (400, 500, 600), both under the SIL Open Font License (`assets/fonts/OFL-*.txt`). They are served from this site as subset `woff2` files (Latin and Latin Extended-A) — the pages make no requests to Google or other third parties. The two critical files are preloaded in `_layouts/default.html`, the rest use `font-display: swap`.
 
+## Security
+
+- **Content Security Policy** in `_layouts/default.html` (a `<meta>` tag, because GitHub Pages cannot set headers): scripts only from this site plus the one inline snippet that sets the `js` class (allowed by its hash). The search index is a generated file, `assets/search-index.js`. If you change that inline snippet, recompute its `sha256` in the CSP.
+- **No third-party requests:** fonts, scripts and images are all served from this site.
+- **Downloads are pinned to the release tag** (`tag` in `_data/apps.yml`, refreshed with the version), and single-file downloads show their SHA-256 (`script_path` / `sha256`, computed by `scripts/update-versions.py`). A changed file under an unchanged tag is reported by the script.
+- **Signing key fingerprints** live in `_data/keys.yml`, are shown on the ccc and repo-doctor pages and are published in the Icenux repository, so they can be compared in two places.
+- **GitHub Actions are pinned to commit SHAs**, and Dependabot (`.github/dependabot.yml`) proposes updates weekly.
+
 ## Local preview
 
 ```bash

@@ -1,0 +1,22 @@
+{%- comment -%} Install rows for checking the signing keys. Usage: include verify-rows.html slug=page.app {%- endcomment -%}
+{%- assign appkey = site.data.keys[include.slug] -%}
+{%- capture cmd1 %}gpg --show-keys --fingerprint /usr/share/keyrings/icenux.asc{% endcapture -%}
+{%- capture cmd2 %}gpg --import {{ appkey.key_file }}
+gpg --verify SHA256SUMS.asc SHA256SUMS
+sha256sum -c SHA256SUMS --ignore-missing{% endcapture -%}
+          <div class="install-row">
+            <div class="install-row__head">
+              <span>Check the repository key</span>
+              <button class="copy-btn" type="button" data-copy="{{ cmd1 | escape }}" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>{{ cmd1 | escape }}</code></pre>
+            <p class="install-row__note">Expected fingerprint: <code class="hash">{{ site.data.keys.repository.fingerprint }}</code>. It is also published in the <a href="https://github.com/Icenux/icenux/blob/main/keys/fingerprint" target="_blank" rel="noopener">Icenux repository</a>.</p>
+          </div>
+          <div class="install-row">
+            <div class="install-row__head">
+              <span>Verify a downloaded release</span>
+              <button class="copy-btn" type="button" data-copy="{{ cmd2 | escape }}" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>{{ cmd2 | escape }}</code></pre>
+            <p class="install-row__note">Download <code>SHA256SUMS</code> and <code>SHA256SUMS.asc</code> from the release and <code>{{ appkey.key_file }}</code> from <a href="https://github.com/Icenux/icenux/tree/main/keys" target="_blank" rel="noopener">keys/</a> in the Icenux repository. The signing key's fingerprint must be <code class="hash">{{ appkey.fingerprint }}</code>.</p>
+          </div>

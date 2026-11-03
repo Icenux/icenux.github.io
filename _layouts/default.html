@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-WZRJfWvsnNCPcxzZwvyhovnZGqhZaC+8gPGPRbx6wTk='; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>{{ page.title | default: site.title | escape }}</title>
   <meta name="description" content="{{ page.description | default: site.description | escape }}">
   <meta name="theme-color" content="#08050f">
@@ -40,7 +42,7 @@
 
 {% include search.html %}
 
-  {% include search-index.html %}
+  <script src="/assets/search-index.js" defer></script>
   <script src="/assets/main.js" defer></script>
 </body>
 </html>

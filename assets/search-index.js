@@ -1,5 +1,7 @@
+---
+layout: null
+---
 {%- comment -%} Site search entries for assets/main.js: pages by hand, apps from _data/apps.yml. {%- endcomment -%}
-<script>
 window.SITE_INDEX = [
   { "title": "Home", "description": "Icenux — software with a cool edge", "url": "/", "type": "Page", "group": "Pages", "icon": "home" },
   { "title": "What it’s about", "description": "Terminal tools, light on the system, installable and verifiable", "url": "/#what-we-do", "type": "Section", "group": "Pages", "icon": "sparkle" },
@@ -10,4 +12,3 @@ window.SITE_INDEX = [
   { "title": {{ app.download_title | jsonify }}, "description": {{ dl | jsonify }}, "url": "{{ app.url }}#download", "type": "Download", "group": "Apps", "icon": "download" }
   {%- endfor %}
 ];
-</script>

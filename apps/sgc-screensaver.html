@@ -129,7 +129,7 @@ next: [scrv, displays]
             <h2>Install SGC Screensaver<span class="dot-end">.</span></h2>
             <p>Clone the repository, copy two scripts and the video into place, then merge <code>sway/sgc-idle.conf</code> (a <code>swayidle</code> timeout clause and a <code>for_window</code> rule) into your own Sway config and run <code>sway reload</code>.</p>
             <div class="download-actions">
-              <a class="btn btn--primary" href="https://github.com/{{ app.repo }}/archive/refs/heads/main.zip" download>Download source ZIP <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--primary" href="https://github.com/{{ app.repo }}/archive/refs/tags/{{ app.tag }}.zip" download>Download source ZIP <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               <a class="btn btn--ghost" href="https://github.com/{{ app.repo }}/releases/latest" target="_blank" rel="noopener">Releases ↗</a>
             </div>
             <p class="download-note">Requires Sway, <code>mpv</code> and <code>jq</code>: <code>sudo pacman -S mpv jq</code>.</p>
@@ -137,7 +137,7 @@ next: [scrv, displays]
           <div class="install-card">
             <div class="install-card__head">
               <span>Install from source</span>
-              <button class="copy-btn" type="button" data-copy="git clone https://github.com/{{ app.repo }}.git
+              <button class="copy-btn" type="button" data-copy="git clone --branch {{ app.tag }} https://github.com/{{ app.repo }}.git
 cd arch_SGC_screensaver
 
 mkdir -p ~/.local/bin ~/.local/share/sgc-screensaver
@@ -147,7 +147,7 @@ chmod +x ~/.local/bin/sgc-launch-screensaver ~/.local/bin/sgc-kill-screensaver
 cp sgc-screensaver/sgc.mp4 ~/.local/share/sgc-screensaver/
 cp sgc-screensaver/mpv-input.conf ~/.local/share/sgc-screensaver/" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
             </div>
-            <pre><code>git clone https://github.com/{{ app.repo }}.git
+            <pre><code>git clone --branch {{ app.tag }} https://github.com/{{ app.repo }}.git
 cd arch_SGC_screensaver
 
 mkdir -p ~/.local/bin ~/.local/share/sgc-screensaver

@@ -1,0 +1,11 @@
+# Weekly pull requests for pinned GitHub Actions and the Ruby gems used for local preview.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: bundler
+    directory: /
+    schedule:
+      interval: weekly
