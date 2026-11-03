@@ -26,6 +26,7 @@ THUMBS = {
     'ccc': 'conversations',
     'displays': 'screenshot',
     'sgc-screensaver': 'screenshot',
+    'wpview': 'viewer',
 }
 
 
