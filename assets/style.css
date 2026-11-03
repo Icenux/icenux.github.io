@@ -3590,3 +3590,8 @@ ul, ol {
   word-break: break-all;
   overflow-wrap: anywhere;
 }
+
+/* wpview */
+.app-card__icon--wpview { color: #a5b4fc; background: rgba(165, 180, 252, 0.08); }
+.app-tag__icon--wpview { color: #a5b4fc; background: rgba(165, 180, 252, 0.1); }
+.next-app__icon--wpview { color: #a5b4fc; background: rgba(165, 180, 252, 0.09); }

@@ -1,0 +1,222 @@
+---
+title: "wpview — a touch-first photo viewer and editor for React | Icenux"
+description: "wpview is a standalone React plugin for viewing and editing photos on touch screens: rating, tags, rotate, crop, slideshow. No API calls — your app owns the policy."
+permalink: /apps/wpview/
+nav: apps
+og_type: article
+app: wpview
+next: [scrv, ccc]
+---
+{% assign app = site.data.apps | where: "slug", page.app | first %}
+    <section class="app-hero">
+      <div class="container">
+        <a class="back-link" href="/apps/">← All apps</a>
+        <div class="app-hero__inner">
+          <div class="app-hero__copy">
+            <span class="app-tag"><span class="app-tag__icon app-tag__icon--wpview"><svg viewBox="0 0 24 24" aria-hidden="true">{{ app.icon_svg }}</svg></span>Photo viewer</span>
+            <h1>wpview<span class="dot-end">.</span></h1>
+            <p class="lede">A photo viewer and editor that behaves on a touch screen, and stays out of your backend.</p>
+            <p class="app-hero__text">A standalone frontend plugin for React. wpview emits intent — rate, favorite, edit, delete — and the app that embeds it decides what happens. It has no API, no <code>fetch</code> and no permission logic of its own.</p>
+            <div class="app-hero__actions">
+              <a class="btn btn--primary" href="#download">Install wpview <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="https://github.com/{{ app.repo }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z" fill="currentColor"/></svg> GitHub</a>
+            </div>
+            <ul class="app-facts">
+              <li><span>Version</span><strong>v{{ app.version }}</strong></li>
+              <li><span>Framework</span><strong>React 18</strong></li>
+              <li><span>Written in</span><strong>TypeScript</strong></li>
+              <li><span>Format</span><strong>ESM + types</strong></li>
+            </ul>
+          </div>
+          <figure class="app-hero__shot">
+            <div class="shot-frame shot-frame--terminal">
+              <div class="shot-frame__bar">
+                <span class="shot-frame__dots"><i></i><i></i><i></i></span>
+                <span class="shot-frame__title">wpview — playground</span>
+                <span class="shot-frame__badge">v{{ app.version }}</span>
+              </div>
+              <img src="/assets/apps/wpview/viewer.webp" alt="wpview with an open photo, rating stars, favorite, a tag chip and a toolbar with rotate, crop, slideshow, info, delete and settings" width="1280" height="577">
+            </div>
+            <figcaption>The playground: capability-gated toolbar, optimistic rating, removable tag chips and a favorite.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="kicker">What it does</span>
+            <h2>Everything on the photo.<br>Nothing on your server<span class="dot-end">.</span></h2>
+          </div>
+          <p>A viewer you drop into a gallery, and a clear contract between the two.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v10"/><path d="M8 7a4 4 0 1 1 8 0"/><rect x="9" y="9" width="6" height="12" rx="2"/></svg>
+            </span>
+            <h3>Touch first</h3>
+            <p>Swipe to move through photos, pinch or double-tap to zoom, drag to pan, swipe down to close. Arrow keys and Escape work too.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg>
+            </span>
+            <h3>Rate, favorite, tag</h3>
+            <p>Optimistic updates keyed per photo, so a rating never sticks to the next one. Tags are removable chips.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v15h15M3 6h15v15"/></svg>
+            </span>
+            <h3>Rotate and crop</h3>
+            <p>Edits run in a canvas inside the viewer and arrive as a ready <code>Blob</code>. Animated GIFs are edited frame by frame and stay animated.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+            <h3>Slideshow</h3>
+            <p>Fade, slide, zoom, flip or blur transitions, with timing, loop, shuffle and photo/video filters in the settings panel.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg>
+            </span>
+            <h3>Windowed lists</h3>
+            <p>Give it a window of items around the current index. At the edge it asks for more through <code>onRequestMore</code>.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v5c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+            <h3>No API, no fetch</h3>
+            <p>wpview never calls a backend or applies permissions. It only emits <code>onRate</code>, <code>onEdit</code>, <code>onDelete</code> and friends.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section app-section--why">
+      <div class="container">
+        <div class="why-panel reveal">
+          <div>
+            <span class="kicker">The contract</span>
+            <h2>You own the policy<span class="dot-end">.</span></h2>
+          </div>
+          <div class="why-panel__body">
+            <p>wpview shows only what <code>capabilities</code> allows, never changes the position on its own, and never confirms a delete. The full interface is documented in <code>CONTRACT.md</code> in the repository.</p>
+            <ul class="check-list check-list--two">
+              <li>Controlled <code>index</code> and <code>itemState</code></li>
+              <li>Callbacks: <code>onRate</code>, <code>onFavorite</code>, <code>onTagToggle</code>, <code>onEdit</code>, <code>onDelete</code></li>
+              <li>Images and video, with a settings panel</li>
+              <li>Peer dependencies: <code>react</code> and <code>react-dom</code> 18</li>
+              <li>Playground with mock data: <code>npm run dev</code></li>
+              <li>Tests with Vitest and Testing Library</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section" id="download">
+      <div class="container">
+        <div class="download-panel reveal">
+          <div class="download-panel__copy">
+            <span class="kicker">Install</span>
+            <h2>Install wpview<span class="dot-end">.</span></h2>
+            <p>wpview is not on npm yet. Add it straight from GitHub; the command is pinned to one commit, and the package builds itself on install.</p>
+            <div class="download-actions">
+              <a class="btn btn--primary" href="https://github.com/{{ app.repo }}/archive/{{ app.tag }}.zip" download>Download source ZIP <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="https://github.com/{{ app.repo }}" target="_blank" rel="noopener">Repository ↗</a>
+            </div>
+            <p class="download-note">Needs React 18 and Node.js with npm. Commit <code>{{ app.tag | slice: 0, 7 }}</code>.</p>
+          </div>
+          <div class="install-card">
+            <div class="install-card__head">
+              <span>npm</span>
+              <button class="copy-btn" type="button" data-copy="npm install github:{{ app.repo }}#{{ app.tag }}" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>npm install github:{{ app.repo }}#{{ app.tag }}</code></pre>
+            <p class="install-card__foot">Then import the component and <code>@icenux/wpview/style.css</code>.</p>
+          </div>
+        </div>
+
+        <div class="install-list reveal">
+          <h3 class="install-list__title">Use it</h3>
+          <div class="install-row">
+            <div class="install-row__head">
+              <span>React</span>
+              <button class="copy-btn" type="button" data-copy="import { WpView } from '@icenux/wpview';
+import '@icenux/wpview/style.css';
+
+<WpView
+  items={items}
+  index={index}
+  itemState={state}
+  capabilities={{ rate: true, rotate: true, crop: true }}
+  onIndexChange={setIndex}
+  onRate={(id, value) => api.rate(id, value)}
+  onClose={() => setOpen(false)}
+/>" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>import { WpView } from '@icenux/wpview';
+import '@icenux/wpview/style.css';
+
+&lt;WpView
+  items={items}
+  index={index}
+  itemState={state}
+  capabilities={{ rate: true, rotate: true, crop: true }}
+  onIndexChange={setIndex}
+  onRate={(id, value) =&gt; api.rate(id, value)}
+  onClose={() =&gt; setOpen(false)}
+/&gt;</code></pre>
+            <p class="install-row__note">Only the callbacks you pass are used; buttons without a matching capability stay hidden.</p>
+          </div>
+        </div>
+
+        <div class="spec-grid reveal">
+          <div class="spec"><span>Version</span><strong>v{{ app.version }}</strong><small>{{ app.released }}</small></div>
+          <div class="spec"><span>Framework</span><strong>React 18</strong><small>react and react-dom as peers</small></div>
+          <div class="spec"><span>Output</span><strong>ESM</strong><small>With type declarations</small></div>
+          <div class="spec"><span>Source</span><strong>GitHub</strong><small>Not on npm yet</small></div>
+        </div>
+
+        <p class="feedback-note reveal">Found a bug or have an idea? <a href="https://github.com/{{ app.repo }}/issues" target="_blank" rel="noopener">Open an issue on GitHub ↗</a></p>
+      </div>
+    </section>
+
+    <section class="app-section">
+      <div class="container">
+        <div class="why-panel reveal">
+          <div>
+            <span class="kicker">Good to know</span>
+            <h2>Known limits<span class="dot-end">.</span></h2>
+          </div>
+          <div class="why-panel__body">
+            <ul class="check-list check-list--two">
+              <li>Rotating re-encodes the image in a canvas, so it is lossy</li>
+              <li>GIFs keep at most 256 colors per frame and 1-bit transparency</li>
+              <li>There is no 1:1 pixel view; zoom is pinch or double-tap</li>
+              <li>The info panel is yours: wpview only emits <code>onInfoOpen</code></li>
+              <li>Early version (0.1.0), the contract may still change</li>
+              <li>No release or license file in the repository yet</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section app-section--next">
+      <div class="container">
+        <div class="app-next reveal">
+          <span class="kicker">Keep exploring</span>
+          <div class="app-next__grid">
+          {% include next-apps.html %}
+          </div>
+        </div>
+      </div>
+    </section>

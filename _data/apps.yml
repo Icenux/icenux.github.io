@@ -173,3 +173,27 @@
     width: 720
     height: 405
     portrait: false
+
+- slug: "wpview"
+  name: "wpview"
+  url: "/apps/wpview/"
+  repo: "Icenux/wpview"
+  version: "0.1.0"
+  released: "November 2026"
+  tag: "6105211e46413eb9881639ab9a85256d056c431b"
+  platform: "React"
+  icon: "wpview"
+  icon_svg: "<rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"/><circle cx=\"9\" cy=\"10\" r=\"1.8\"/><path d=\"m21 16-5-5-8 9\"/>"
+  tagline: "A touch-first photo viewer and editor for React. It emits intent — rate, edit, delete — and your app owns the policy."
+  kind: "React plugin · TypeScript"
+  blurb: "Touch-first photo viewer for React"
+  search_icon: "image"
+  search_desc: "A touch-first photo viewer and editor for React — rating, tags, rotate, crop, slideshow, no API calls"
+  download_title: "Install wpview"
+  download_desc: "Add the wpview React plugin to your project from GitHub"
+  preview:
+    src: "assets/apps/wpview/card.webp"
+    alt: "wpview showing a photo with rating, favorite and toolbar"
+    width: 720
+    height: 405
+    portrait: false
