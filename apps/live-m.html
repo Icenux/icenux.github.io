@@ -166,6 +166,11 @@ livem{% endcapture %}
           </div>
         </div>
         <div class="install-list reveal">
+          <h3 class="install-list__title">Install on Arch Linux</h3>
+{% include pacman-row.html pkg="livem" after="livem" %}
+        </div>
+
+        <div class="install-list reveal">
           <h3 class="install-list__title">Verify the package</h3>
           {% include verify-rows.html slug=page.app %}
         </div>
