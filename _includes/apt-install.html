@@ -1,7 +1,7 @@
 {%- comment -%}
   Install with APT: the signed Icenux repository, then the package.
   Usage: {% include apt-install.html pkg="displays" after="displays" note="Optional extra sentence." %}
-  `after` is an optional command run once the package is installed.
+  `after` is an optional command run once the package is installed; `slug` adds the key-verification rows.
 {%- endcomment -%}
 {%- capture apt_cmds -%}
 sudo curl -fsSL https://icenux.github.io/icenux/icenux.asc -o /usr/share/keyrings/icenux.asc
@@ -19,5 +19,8 @@ sudo apt update && sudo apt install {{ include.pkg }}{% if include.after %}
             <pre><code>{{ apt_cmds | escape }}</code></pre>
             <p class="install-row__note">Adds the signed Icenux repository once, so updates arrive with <code>apt upgrade</code>.{% if include.note %} {{ include.note }}{% endif %}</p>
           </div>
+          {%- if include.slug %}
+          {% include verify-rows.html slug=include.slug %}
+          {%- endif %}
         </div>
 

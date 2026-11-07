@@ -8,3 +8,18 @@ ccc:
 repo-doctor:
   fingerprint: "61CB 5447 85F6 CE13 3581  65CD DC0A DD39 ACA4 DB9A"
   key_file: "repo-doctor.asc"
+live-m:
+  fingerprint: "A4F1 F280 4AD3 0A96 4BB9  DA30 2330 7E96 9582 AFD9"
+  key_file: "livem.asc"
+displays:
+  fingerprint: "1231 9BE5 B7F6 48ED 8B5D  70E1 2D38 C9DC 9E61 6F6E"
+  key_file: "displays.asc"
+scrv:
+  fingerprint: "E0B8 3C1F 064A 94CC 10B9  36DD AF95 4553 54F6 1D8A"
+  key_file: "scrv.asc"
+sway-desktop-stats:
+  fingerprint: "1CD3 AD5A 2F5E E290 642A  095A D0BB FC95 6E26 47C5"
+  key_file: "sway-desktop-stats.asc"
+sgc-screensaver:
+  fingerprint: "9A97 F6C8 A2EC 7695 9187  4366 B9C5 9E43 05B9 CA8D"
+  key_file: "sgc-screensaver.asc"
