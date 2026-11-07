@@ -3,9 +3,13 @@
   Usage: {% include pacman-row.html pkg="displays" after="displays" %}
 {%- endcomment -%}
 {%- capture pacman_cmds -%}
+sudo curl -fsSLo /tmp/icenux.asc https://icenux.github.io/icenux/icenux.asc
+gpg --show-keys --fingerprint /tmp/icenux.asc
+sudo pacman-key --add /tmp/icenux.asc
+sudo pacman-key --lsign-key {{ site.data.keys.repository.fingerprint | remove: ' ' }}
 sudo tee -a /etc/pacman.conf <<'EOF'
 [icenux]
-SigLevel = Optional TrustAll
+SigLevel = Required
 Server = https://icenux.github.io/icenux/arch/$arch
 EOF
 sudo pacman -Sy {{ include.pkg }}{% if include.after %}
@@ -17,5 +21,5 @@ sudo pacman -Sy {{ include.pkg }}{% if include.after %}
               <button class="copy-btn" type="button" data-copy="{{ pacman_cmds | escape }}" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
             </div>
             <pre><code>{{ pacman_cmds | escape }}</code></pre>
-            <p class="install-row__note">Adds the Icenux pacman repository once (run the <code>tee</code> command only the first time), so updates arrive with <code>pacman -Syu</code>. The repository is not signed with a pacman key; every package still comes from a release with a signed <code>SHA256SUMS</code>.</p>
+            <p class="install-row__note">Run the first part only once: it imports the Icenux signing key and adds the repository, so updates arrive with <code>pacman -Syu</code>. Before importing, check that the fingerprint printed by <code>gpg</code> is <code class="hash">{{ site.data.keys.repository.fingerprint }}</code>. Every package and the database are signed with this key.</p>
           </div>
