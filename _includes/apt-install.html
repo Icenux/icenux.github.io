@@ -1,0 +1,23 @@
+{%- comment -%}
+  Install with APT: the signed Icenux repository, then the package.
+  Usage: {% include apt-install.html pkg="displays" after="displays" note="Optional extra sentence." %}
+  `after` is an optional command run once the package is installed.
+{%- endcomment -%}
+{%- capture apt_cmds -%}
+sudo curl -fsSL https://icenux.github.io/icenux/icenux.asc -o /usr/share/keyrings/icenux.asc
+echo 'deb [signed-by=/usr/share/keyrings/icenux.asc] https://icenux.github.io/icenux/apt ./' | sudo tee /etc/apt/sources.list.d/icenux.list
+sudo apt update && sudo apt install {{ include.pkg }}{% if include.after %}
+{{ include.after }}{% endif %}
+{%- endcapture -%}
+        <div class="install-list reveal">
+          <h3 class="install-list__title">Install with APT</h3>
+          <div class="install-row">
+            <div class="install-row__head">
+              <span>Debian · Ubuntu · Mint</span>
+              <button class="copy-btn" type="button" data-copy="{{ apt_cmds | escape }}" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>{{ apt_cmds | escape }}</code></pre>
+            <p class="install-row__note">Adds the signed Icenux repository once, so updates arrive with <code>apt upgrade</code>.{% if include.note %} {{ include.note }}{% endif %}</p>
+          </div>
+        </div>
+

@@ -23,33 +23,37 @@ nav: home
           </ul>
         </div>
 
-        <div class="hero__art" aria-hidden="true">
-          <div class="orb"></div>
+        <div class="hero__art">
+          <div class="orb" aria-hidden="true"></div>
           <div class="window">
             <div class="window__bar">
               <span class="window__dots"><i></i><i></i><i></i></span>
-              <span class="window__title">icenux / core</span>
-              <span class="window__badge">main</span>
+              <span class="window__title">add the Icenux repository</span>
+              <span class="window__badge">apt</span>
             </div>
             <div class="window__body">
-<pre><code><span class="c-com">// small Linux tools, open source</span>
-<span class="c-key">const</span> <span class="c-var">apps</span> = [
-{%- for app in site.data.apps %}
-  <span class="c-str">"{{ app.slug }}"</span>{% unless forloop.last %},{% endunless %}
-{%- endfor %}
-];
+<pre><code><span class="c-com"># 1. add the signing key</span>
+<span class="c-fn">sudo curl</span> -fsSL -o /usr/share/keyrings/icenux.asc \
+  https://icenux.github.io/icenux/icenux.asc
 
-<span class="c-key">export</span> <span class="c-key">default</span> <span class="c-fn">ship</span>(apps);
+<span class="c-com"># 2. add the repository</span>
+<span class="c-fn">echo</span> <span class="c-str">"deb [signed-by=/usr/share/keyrings/icenux.asc] \
+  https://icenux.github.io/icenux/apt ./"</span> \
+  | <span class="c-fn">sudo tee</span> /etc/apt/sources.list.d/icenux.list
+
+<span class="c-com"># 3. install any app</span>
+<span class="c-fn">sudo apt</span> update
+<span class="c-fn">sudo apt</span> install <span class="c-var">repo-doctor</span>
 <span class="c-cursor"></span></code></pre>
               <div class="window__pills">
                 <span class="chip chip--green">● {{ site.data.apps | size }} apps</span>
-                <span class="chip">Linux</span>
-                <span class="chip">Open source</span>
+                <span class="chip">Debian · Ubuntu · Mint</span>
+                <span class="chip">Signed</span>
               </div>
             </div>
           </div>
 
-          <div class="float-card float-card--1">
+          <div class="float-card float-card--1" aria-hidden="true">
             <span class="float-card__icon">
               <svg viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></svg>
             </span>
@@ -59,16 +63,12 @@ nav: home
             </span>
           </div>
 
-          <div class="float-card float-card--2">
+          <div class="float-card float-card--2" aria-hidden="true">
             <span class="float-card__avatar">IN</span>
             <span>
               <strong>Updates via apt</strong>
               <small>apt install ccc repo-doctor</small>
             </span>
-          </div>
-
-          <div class="float-card float-card--3">
-            <svg viewBox="0 0 24 24"><path d="M12 2 14.4 9.6 22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></svg>
           </div>
         </div>
       </div>
