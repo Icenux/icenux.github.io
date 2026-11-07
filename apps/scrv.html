@@ -13,7 +13,7 @@ next: [ccc, live-m]
         <a class="back-link" href="/apps/">← All apps</a>
         <div class="app-hero__inner">
           <div class="app-hero__copy">
-            <span class="app-tag"><span class="app-tag__icon app-tag__icon--scrv"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11M3 12h3v9h13v-3l4 4V7l-4 4H3z"/></svg></span>Screensaver toggle</span>
+            <span class="app-tag"><span class="app-tag__icon app-tag__icon--scrv"><svg viewBox="0 0 24 24" aria-hidden="true">{{ app.icon_svg }}</svg></span>Screensaver toggle</span>
             <h1>scrv<span class="dot-end">.</span></h1>
             <p class="lede">One command to keep your screen awake. Run it once to disable the screensaver and lock, run it again to bring them back.</p>
             <p class="app-hero__text">A simple bash script that stacks several inhibition layers — gsettings, xset, systemd-inhibit and a DBus polling fallback — so it works on X11 and Wayland, from Cinnamon and GNOME to Hyprland and Sway.</p>

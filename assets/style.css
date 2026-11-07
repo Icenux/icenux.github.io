@@ -687,7 +687,7 @@ ul, ol {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: min(100%, 430px);
+  width: min(100%, 520px);
   border: 1px solid rgba(196, 168, 255, 0.22);
   border-radius: 18px;
   background: linear-gradient(160deg, rgba(30, 18, 52, 0.94), rgba(13, 8, 24, 0.97));
@@ -730,16 +730,38 @@ ul, ol {
 }
 
 .window__body {
-  padding: 22px 22px 18px;
+  padding: 20px 20px 16px;
 }
 
 .window pre {
-  margin: 0;
+  margin: 0 0 14px;
+  padding-bottom: 4px;
   overflow-x: auto;
   font-family: "SFMono-Regular", ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
-  font-size: 0.78rem;
-  line-height: 1.85;
+  font-size: 0.72rem;
+  line-height: 1.8;
   color: #e8e0fa;
+  /* Purple scrollbar that sits in the window like a terminal one, not the system default. */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 85, 247, 0.5) transparent;
+}
+
+.window pre::-webkit-scrollbar {
+  height: 6px;
+}
+
+.window pre::-webkit-scrollbar-track {
+  background: rgba(168, 85, 247, 0.07);
+  border-radius: 6px;
+}
+
+.window pre::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, rgba(168, 85, 247, 0.55), rgba(139, 92, 246, 0.55));
+  border-radius: 6px;
+}
+
+.window pre::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, rgba(192, 132, 252, 0.85), rgba(168, 85, 247, 0.85));
 }
 
 .c-com { color: #6b5b8a; }
@@ -786,84 +808,6 @@ ul, ol {
   color: var(--green);
   border-color: rgba(110, 231, 183, 0.25);
   background: rgba(110, 231, 183, 0.07);
-}
-
-.float-card {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  padding: 11px 15px;
-  border: 1px solid rgba(196, 168, 255, 0.2);
-  border-radius: 14px;
-  background: rgba(20, 12, 36, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 16px 40px -18px rgba(0, 0, 0, 0.9);
-  font-size: 0.74rem;
-  z-index: 3;
-}
-
-.float-card strong {
-  display: block;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1.35;
-}
-
-.float-card small {
-  display: block;
-  color: var(--muted-2);
-  font-size: 0.66rem;
-  line-height: 1.4;
-}
-
-.float-card--1 {
-  top: 38%;
-  right: -14px;
-  animation: float 7s ease-in-out infinite;
-}
-
-.float-card--2 {
-  bottom: 26px;
-  left: -26px;
-  animation: float 8s 0.8s ease-in-out infinite;
-}
-
-.float-card__icon {
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  flex: none;
-  border-radius: 9px;
-  background: rgba(110, 231, 183, 0.12);
-  color: var(--green);
-}
-
-.float-card__icon svg {
-  width: 15px;
-  height: 15px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.float-card__avatar {
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  flex: none;
-  border-radius: 9px;
-  background: var(--grad-btn);
-  color: #fff;
-  font-family: var(--font-display);
-  font-size: 0.64rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
 }
 
 @keyframes float {
@@ -1624,13 +1568,6 @@ ul, ol {
     gap: 32px;
   }
 
-  .float-card--1 {
-    right: -4px;
-  }
-
-  .float-card--2 {
-    left: -8px;
-  }
 
   .about {
     gap: 48px;
@@ -1850,19 +1787,6 @@ ul, ol {
     font-size: 0.69rem;
   }
 
-  .float-card--1 {
-    display: none;
-  }
-
-  .float-card--2 {
-    bottom: -8px;
-    left: -2px;
-    padding: 8px 11px;
-  }
-
-  .float-card small {
-    font-size: 0.6rem;
-  }
 
   .strip__inner {
     grid-template-columns: 1fr;
