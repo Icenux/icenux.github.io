@@ -15,6 +15,9 @@ on:
   schedule:
     - cron: "17 5 * * *"
   workflow_dispatch:
+  # Sent by the release workflows of the apps (secret SITE_DISPATCH_TOKEN) so a new version shows up at once.
+  repository_dispatch:
+    types: [app-released]
 
 permissions:
   contents: read
