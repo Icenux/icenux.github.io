@@ -6,7 +6,7 @@
     <span class="app-card__icon app-card__icon--{{ a.icon }}">
       <svg viewBox="0 0 24 24" aria-hidden="true">{{ a.icon_svg }}</svg>
     </span>
-    <span class="status">v{{ a.version }} · {{ a.platform }}</span>
+    <span class="status">{{ a.version }} · {{ a.platform }}</span>
   </span>
   {% if a.preview_code -%}
   <span class="app-card__preview app-card__preview--code" aria-hidden="true">
