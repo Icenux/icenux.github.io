@@ -1,5 +1,5 @@
 {%- comment -%}
-  Install with APT: the signed Icenux repository, then the package.
+  Install from the Icenux repository: APT (signed) and pacman, then the package.
   Usage: {% include apt-install.html pkg="displays" after="displays" note="Optional extra sentence." %}
   `after` is an optional command run once the package is installed; `slug` adds the key-verification rows.
 {%- endcomment -%}
@@ -10,7 +10,7 @@ sudo apt update && sudo apt install {{ include.pkg }}{% if include.after %}
 {{ include.after }}{% endif %}
 {%- endcapture -%}
         <div class="install-list reveal">
-          <h3 class="install-list__title">Install with APT</h3>
+          <h3 class="install-list__title">Install from the Icenux repository</h3>
           <div class="install-row">
             <div class="install-row__head">
               <span>Debian · Ubuntu · Mint</span>
@@ -19,6 +19,7 @@ sudo apt update && sudo apt install {{ include.pkg }}{% if include.after %}
             <pre><code>{{ apt_cmds | escape }}</code></pre>
             <p class="install-row__note">Adds the signed Icenux repository once, so updates arrive with <code>apt upgrade</code>.{% if include.note %} {{ include.note }}{% endif %}</p>
           </div>
+          {% include pacman-row.html pkg=include.pkg after=include.after %}
           {%- if include.slug %}
           {% include verify-rows.html slug=include.slug %}
           {%- endif %}
