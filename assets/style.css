@@ -830,26 +830,6 @@ ul, ol {
   animation: float 8s 0.8s ease-in-out infinite;
 }
 
-.float-card--3 {
-  top: 6%;
-  left: 2%;
-  width: 46px;
-  height: 46px;
-  justify-content: center;
-  padding: 0;
-  border-radius: 13px;
-  color: var(--lilac);
-  animation: float 9s 1.4s ease-in-out infinite;
-  background: rgba(168, 85, 247, 0.12);
-}
-
-.float-card--3 svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-  filter: drop-shadow(0 0 6px rgba(192, 132, 252, 0.8));
-}
-
 .float-card__icon {
   display: grid;
   place-items: center;
@@ -1878,10 +1858,6 @@ ul, ol {
     bottom: -8px;
     left: -2px;
     padding: 8px 11px;
-  }
-
-  .float-card--3 {
-    display: none;
   }
 
   .float-card small {
