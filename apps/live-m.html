@@ -165,6 +165,11 @@ livem{% endcapture %}
             <p class="install-card__foot">Then press <kbd>q</kbd> to quit, or <kbd>+</kbd> / <kbd>-</kbd> to change the refresh interval.</p>
           </div>
         </div>
+        <div class="install-list reveal">
+          <h3 class="install-list__title">Verify the package</h3>
+          {% include verify-rows.html slug=page.app %}
+        </div>
+
         <div class="spec-grid reveal">
           <div class="spec"><span>Package</span><strong>livem {{ app.version }}</strong><small>Signed APT package</small></div>
           <div class="spec"><span>Runs on</span><strong>Debian · Ubuntu · Mint</strong><small>Other distributions from source</small></div>
