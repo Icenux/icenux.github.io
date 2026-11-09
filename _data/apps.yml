@@ -80,21 +80,43 @@
   version: "0.1.5"
   released: "November 2026"
   tag: "0.1.5"
-  android_repo: "Icenux/ccc_android"
-  android_version: "0.1.2"
-  platform: "Linux + Android"
+  platform: "Linux"
   icon: "ccc"
   icon_svg: "<rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2.5\"/><path d=\"m7 9.5 3 2.5-3 2.5\"/><path d=\"M12.5 15H17\"/>"
-  tagline: "A terminal home for Claude Code work that keeps going without you. Task queue, usage-limit handling, approvals and an Android client."
-  kind: "Terminal + Android · Python"
+  tagline: "A terminal home for Claude Code work that keeps going without you. Task queue, usage-limit handling and approvals."
+  kind: "Terminal · Python"
   blurb: "Terminal home for Claude Code work"
   search_icon: "terminal"
-  search_desc: "A terminal home for Claude Code work — task queue, usage limits, approvals and an Android client"
+  search_desc: "A terminal home for Claude Code work — task queue, usage limits and approvals"
   download_title: "Download ccc"
-  download_desc: "Install ccc from the Icenux APT repository, plus the Android app"
+  download_desc: "Install ccc from the Icenux APT repository"
   preview:
     src: "assets/apps/ccc/card.webp"
     alt: "ccc conversations screen"
+    width: 720
+    height: 405
+    portrait: false
+
+- slug: "ccc-android"
+  name: "ccc Android"
+  url: "/apps/ccc-android/"
+  repo: "Icenux/ccc_android"
+  version: "0.2.1"
+  released: "November 2026"
+  tag: "0.2.1"
+  platform: "Android"
+  icon: "ccc-android"
+  icon_svg: "<rect x=\"7\" y=\"2.5\" width=\"10\" height=\"19\" rx=\"2.5\"/><path d=\"M10.5 18.5h3\"/><path d=\"m10 8.5 2 1.8-2 1.8\"/><path d=\"M13.2 12.2h1.6\"/>"
+  tagline: "The phone client of ccc. Read conversations, send messages, approve tool calls and check usage limits from your pocket — privately over Tailscale."
+  kind: "Android app · Kotlin"
+  blurb: "Your ccc queue on your phone"
+  search_icon: "terminal"
+  search_desc: "The Android client of ccc — conversations, approvals, task queue and usage limits from your phone"
+  download_title: "Download ccc for Android"
+  download_desc: "Install the signed ccc.apk on Android 10 or newer"
+  preview:
+    src: "assets/apps/ccc-android/card.webp"
+    alt: "ccc Android app conversations list"
     width: 720
     height: 405
     portrait: false
