@@ -14,7 +14,7 @@ image (the same crop the card shows), at most 720 px wide.
 import os
 import sys
 
-from PIL import Image
+from PIL import Image, ImageDraw
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'assets', 'apps')
 
@@ -24,7 +24,6 @@ THUMBS = {
     'repo-doctor': 'triage',
     'sway-desktop-stats': 'widget',
     'ccc': 'conversations',
-    'ccc-android': 'dashboard',
     'displays': 'screenshot',
     'sgc-screensaver': 'screenshot',
     'wpview': 'viewer',
@@ -61,6 +60,23 @@ def thumb(folder, name):
     print(f'{folder}/card.webp: {w}x{h}, {os.path.getsize(out) // 1024} KB')
 
 
+def phones_thumb(folder, names):
+    """Card for a phone app: portrait screenshots side by side on a dark 16:9 canvas, cut off at the bottom."""
+    W, H, w, gap, top = 720, 405, 200, 18, 26
+    canvas = Image.new('RGB', (W, H), (10, 6, 20))
+    x = (W - (len(names) * w + (len(names) - 1) * gap)) // 2
+    for n in names:
+        im = Image.open(os.path.join(ROOT, folder, n + '.webp')).convert('RGB')
+        im = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
+        mask = Image.new('L', im.size, 0)
+        ImageDraw.Draw(mask).rounded_rectangle((0, 0, im.width - 1, im.height - 1), radius=18, fill=255)
+        canvas.paste(im, (x, top), mask)
+        x += w + gap
+    out = os.path.join(ROOT, folder, 'card.webp')
+    canvas.save(out, 'WEBP', quality=82, method=6)
+    print(f'{folder}/card.webp: {W}x{H}, {os.path.getsize(out) // 1024} KB')
+
+
 def main():
     keep = '--keep' in sys.argv
     for dirpath, _, files in os.walk(ROOT):
@@ -69,6 +85,7 @@ def main():
                 to_webp(os.path.join(dirpath, f), keep)
     for folder, name in THUMBS.items():
         thumb(folder, name)
+    phones_thumb('ccc-android', ['conversations', 'dashboard', 'menu'])
 
 
 if __name__ == '__main__':
