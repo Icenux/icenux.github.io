@@ -2314,6 +2314,11 @@ ul, ol {
   background: rgba(251, 146, 60, 0.09);
 }
 
+.app-card__icon--ccc-android {
+  color: #86efac;
+  background: rgba(74, 222, 128, 0.09);
+}
+
 .app-card__icon--scrv {
   color: #67e8f9;
   background: rgba(103, 232, 249, 0.08);
@@ -2451,6 +2456,11 @@ ul, ol {
 .app-tag__icon--ccc {
   color: #fdba74;
   background: rgba(251, 146, 60, 0.12);
+}
+
+.app-tag__icon--ccc-android {
+  color: #86efac;
+  background: rgba(74, 222, 128, 0.12);
 }
 
 .app-tag__icon--scrv {
@@ -3123,6 +3133,11 @@ ul, ol {
 .next-app__icon--ccc {
   color: #fdba74;
   background: rgba(251, 146, 60, 0.09);
+}
+
+.next-app__icon--ccc-android {
+  color: #86efac;
+  background: rgba(74, 222, 128, 0.09);
 }
 
 .next-app__icon--scrv {

@@ -121,12 +121,6 @@ def main():
                         changed.append(f'{slug}: sha256 of {path} at {tag} {old[:8] or "-"} -> {digest[:8]}{note}')
                         setv(lines, keys['sha256'], digest)
 
-        if 'android_repo' in keys and 'android_version' in keys:
-            got = latest_release(value(lines[keys['android_repo']]))
-            if got and value(lines[keys['android_version']]) != got[0]:
-                changed.append(f'{slug}: android_version {value(lines[keys["android_version"]])} -> {got[0]}')
-                setv(lines, keys['android_version'], got[0])
-
     if changed:
         print('Updated:\n  ' + '\n  '.join(changed))
         if not check:
