@@ -116,7 +116,7 @@
   download_desc: "Install the signed ccc.apk on Android 10 or newer"
   preview:
     src: "assets/apps/ccc-android/card.webp"
-    alt: "ccc Android app dashboard"
+    alt: "ccc Android app: conversations, dashboard and menu"
     width: 720
     height: 405
     portrait: false
