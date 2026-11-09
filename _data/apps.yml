@@ -74,7 +74,7 @@
     portrait: false
 
 - slug: "ccc"
-  name: "ccc"
+  name: "ccc TUI"
   url: "/apps/ccc/"
   repo: "Icenux/ccc_TUI"
   version: "0.1.5"
@@ -88,7 +88,7 @@
   blurb: "Terminal home for Claude Code work"
   search_icon: "terminal"
   search_desc: "A terminal home for Claude Code work — task queue, usage limits and approvals"
-  download_title: "Download ccc"
+  download_title: "Download ccc TUI"
   download_desc: "Install ccc from the Icenux APT repository"
   preview:
     src: "assets/apps/ccc/card.webp"
@@ -116,7 +116,7 @@
   download_desc: "Install the signed ccc.apk on Android 10 or newer"
   preview:
     src: "assets/apps/ccc-android/card.webp"
-    alt: "ccc Android app conversations list"
+    alt: "ccc Android app dashboard"
     width: 720
     height: 405
     portrait: false

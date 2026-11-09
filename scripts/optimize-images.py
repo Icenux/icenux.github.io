@@ -24,7 +24,7 @@ THUMBS = {
     'repo-doctor': 'triage',
     'sway-desktop-stats': 'widget',
     'ccc': 'conversations',
-    'ccc-android': 'conversations',
+    'ccc-android': 'dashboard',
     'displays': 'screenshot',
     'sgc-screensaver': 'screenshot',
     'wpview': 'viewer',
