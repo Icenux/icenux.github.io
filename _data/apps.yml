@@ -5,19 +5,19 @@
   name: "Live-M"
   url: "/apps/live-m/"
   repo: "Icenux/Live-M"
-  version: "2.0.0"
+  version: "2.1.0"
   released: "November 2026"
-  tag: "2.0.0"
+  tag: "2.1.0"
   platform: "Linux"
   icon: "live"
   icon_svg: "<rect x=\"3\" y=\"4\" width=\"18\" height=\"12\" rx=\"2\"/><path d=\"M6.5 10.5H9l1.5-3 3 6 1.5-3h2.5\"/><path d=\"M9 20h6M12 16v4\"/>"
-  tagline: "A lightweight terminal system monitor. Per-core CPU, memory, disks, temperatures and Wi-Fi — without ever touching the process list."
+  tagline: "A lightweight terminal system monitor. Per-core CPU, memory, disks, temperatures and Wi-Fi — and the busiest processes only when you ask for them."
   kind: "System monitor · Python"
   blurb: "Lightweight terminal system monitor"
   search_icon: "terminal"
-  search_desc: "A lightweight terminal system monitor for Linux — CPU, memory, disks, temperatures and Wi-Fi"
+  search_desc: "A lightweight terminal system monitor for Linux — CPU, memory, disks, temperatures, Wi-Fi and optional top processes"
   download_title: "Download Live-M"
-  download_desc: "Install the Live-M Debian package and start monitoring"
+  download_desc: "Install Live-M from the signed APT repository or as an Arch package and start monitoring"
   preview:
     src: "assets/apps/live-m/card.webp"
     alt: "Live-M terminal dashboard"
@@ -69,8 +69,8 @@
   preview:
     src: "assets/apps/sway-desktop-stats/card.webp"
     alt: "Sway Desktop Stats panel"
-    width: 560
-    height: 315
+    width: 514
+    height: 289
     portrait: false
 
 - slug: "ccc"
@@ -198,9 +198,9 @@
   name: "wpview"
   url: "/apps/wpview/"
   repo: "Icenux/wpview"
-  version: "0.1.0"
+  version: "0.1.1"
   released: "November 2026"
-  tag: "0.1.0"
+  tag: "0.1.1"
   platform: "React"
   icon: "wpview"
   icon_svg: "<rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"/><circle cx=\"9\" cy=\"10\" r=\"1.8\"/><path d=\"m21 16-5-5-8 9\"/>"

@@ -1,6 +1,6 @@
 ---
 title: "Live-M — a lightweight terminal system monitor | Icenux"
-description: "Live-M is a lightweight CLI system monitor for Linux: per-core CPU, RAM, swap, disks, temperatures and Wi-Fi speed without the weight of htop."
+description: "Live-M is a lightweight CLI system monitor for Linux: per-core CPU, RAM, swap, disks, temperatures and Wi-Fi speed, plus an optional top-processes panel, without the weight of htop."
 permalink: /apps/live-m/
 nav: apps
 og_type: article
@@ -15,8 +15,8 @@ next: [repo-doctor, sway-desktop-stats]
           <div class="app-hero__copy">
             <span class="app-tag"><span class="app-tag__icon app-tag__icon--live"><svg viewBox="0 0 24 24" aria-hidden="true">{{ app.icon_svg }}</svg></span>Linux utility</span>
             <h1>Live-M<span class="dot-end">.</span></h1>
-            <p class="lede">A lightweight terminal system monitor that replaces htop and psensors — and never touches the process list.</p>
-            <p class="app-hero__text">Per-core CPU, memory, swap, disks, temperatures and live Wi-Fi throughput in one calm, colour-coded view. Everything updates in place, so you can leave it open on a second monitor and forget about it.</p>
+            <p class="lede">A lightweight terminal system monitor that replaces htop and psensors — and only looks at processes when you ask it to.</p>
+            <p class="app-hero__text">Per-core CPU, memory, swap, disks, temperatures and live Wi-Fi throughput in one calm, colour-coded view. Press <kbd>p</kbd> when you want to see the five busiest processes. Everything updates in place, so you can leave it open on a second monitor and forget about it.</p>
             <div class="app-hero__actions">
               <a class="btn btn--primary" href="#download">Download {{ app.version }} <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               <a class="btn btn--ghost" href="https://github.com/Icenux/Live-M" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z" fill="currentColor"/></svg> GitHub</a>
@@ -24,7 +24,7 @@ next: [repo-doctor, sway-desktop-stats]
             <ul class="app-facts">
               <li><span>Version</span><strong>{{ app.version }}</strong></li>
               <li><span>Platform</span><strong>Linux</strong></li>
-              <li><span>Runtime</span><strong>Python 3.8+</strong></li>
+              <li><span>Runtime</span><strong>Python 3.10+</strong></li>
               <li><span>License</span><strong>MIT</strong></li>
             </ul>
           </div>
@@ -35,7 +35,7 @@ next: [repo-doctor, sway-desktop-stats]
                 <span class="shot-frame__title">livem</span>
                 <span class="shot-frame__badge">live</span>
               </div>
-              <img src="/assets/apps/live-m/terminal.webp" alt="Live-M running in a terminal, showing CPU, memory, disk and temperature panels" width="1464" height="758">
+              <img src="/assets/apps/live-m/terminal.webp" alt="Live-M running in a terminal, showing CPU, memory, disk and temperature panels and the top-processes panel" width="1472" height="800">
             </div>
             <figcaption>Every panel refreshes in place. Colours tell you what needs attention.</figcaption>
           </figure>
@@ -50,7 +50,7 @@ next: [repo-doctor, sway-desktop-stats]
             <span class="kicker">What it shows</span>
             <h2>Everything that matters.<br>Nothing that doesn't<span class="dot-end">.</span></h2>
           </div>
-          <p>Live-M is deliberately not a process explorer. It answers one question well: how is this machine doing right now?</p>
+          <p>Live-M is deliberately not a process explorer. It answers one question well: how is this machine doing right now? And when the answer is &ldquo;busy&rdquo;, one key shows what is busy.</p>
         </div>
         <div class="feature-grid">
                     <article class="feature reveal">
@@ -86,14 +86,35 @@ next: [repo-doctor, sway-desktop-stats]
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8.5a15 15 0 0 1 20 0"/><path d="M5.5 12a10 10 0 0 1 13 0"/><path d="M9 15.5a5 5 0 0 1 6 0"/><circle cx="12" cy="19" r="1"/></svg>
             </span>
             <h3>Live Wi-Fi speed</h3>
-            <p>Current download and upload throughput sit in the header, next to the hostname, without taking over the screen.</p>
+            <p>Current download and upload throughput sit in the header, next to the hostname, without taking over the screen. The wireless interface is detected from the kernel, whatever it is called.</p>
           </article>
                     <article class="feature reveal">
             <span class="feature__icon">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 2-9 12h7l-1 8 9-12h-7z"/></svg>
             </span>
             <h3>Lighter than htop</h3>
-            <p>Live-M skips /proc/[pid] entirely. CPU usage stays under 0.5%, which is the whole reason it exists.</p>
+            <p>By default Live-M skips /proc/[pid] entirely and uses around 0.4% of one core, which is the whole reason it exists.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>
+            </span>
+            <h3>Top processes on demand</h3>
+            <p>Press <kbd>p</kbd> for the five busiest processes by CPU and by RAM. It is off by default, sampled every 3 seconds and only while it is on screen, so the cost is small and only paid when you ask.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M13 15h4"/></svg>
+            </span>
+            <h3>Your terminal stays intact</h3>
+            <p>Live-M runs on the alternate screen. When you quit with <kbd>q</kbd> or <kbd>Ctrl</kbd>+<kbd>C</kbd>, the shell output from before you started it is right where you left it.</p>
+          </article>
+                    <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+            </span>
+            <h3>Any Linux</h3>
+            <p>Pure Python on <code>/proc</code> and <code>/sys</code>, so it is not tied to a distribution or CPU architecture. Ready-made packages for Debian, Ubuntu, Mint and Arch; Python 3.10 or newer.</p>
           </article>
         </div>
       </div>
@@ -108,10 +129,11 @@ next: [repo-doctor, sway-desktop-stats]
           </div>
           <div class="why-panel__body">
             <p>htop walks every process in <code>/proc/[pid]/</code> on every refresh. That is useful when you need a process list — and unnecessary weight when you only want the health of the machine.</p>
-            <p>Live-M drops the process iteration completely. The result is a monitor that stays under 0.5% CPU, starts instantly and looks good doing it.</p>
+            <p>By default Live-M does not iterate over processes at all. The result is a monitor that stays around 0.4% CPU, starts instantly and looks good doing it. When you do want to know what is loading the machine, press <kbd>p</kbd>: the panel reads one small file per process, samples every 3 seconds and is not sampled at all while hidden. Measured with 300 processes, that is about 0.8% CPU in total.</p>
             <ul class="check-list">
               <li>Live-updating panels, no flicker</li>
               <li>Refresh interval adjustable with <kbd>+</kbd> and <kbd>-</kbd></li>
+              <li>Top processes with <kbd>p</kbd>, or start with them on using <code>--procs</code></li>
               <li>Optional <code>--interval</code>, <code>--no-color</code>, <code>--version</code> and <code>--help</code></li>
               <li>Quit with <kbd>q</kbd> or <kbd>Ctrl</kbd>+<kbd>C</kbd></li>
             </ul>
@@ -131,8 +153,8 @@ next: [repo-doctor, sway-desktop-stats]
         </div>
         <div class="shots shots--single">
                     <figure class="shot shot--wide reveal">
-            <img src="/assets/apps/live-m/terminal.webp" alt="Full Live-M terminal dashboard with CPU cores, RAM, swap, disks, temperatures and Wi-Fi in the header" width="1464" height="758" loading="lazy">
-            <figcaption>CPU, memory, disks, thermals and network — all in a single terminal window.</figcaption>
+            <img src="/assets/apps/live-m/terminal.webp" alt="Full Live-M terminal dashboard with CPU cores, RAM, swap, disks, temperatures, the top processes by CPU and RAM, and Wi-Fi in the header" width="1472" height="800" loading="lazy">
+            <figcaption>CPU, memory, disks, thermals, network and the busiest processes — all in a single terminal window.</figcaption>
           </figure>
         </div>
       </div>
@@ -144,12 +166,12 @@ next: [repo-doctor, sway-desktop-stats]
           <div class="download-panel__copy">
             <span class="kicker">Download</span>
             <h2>Install Live-M<span class="dot-end">.</span></h2>
-            <p>Built for Debian, Ubuntu and Linux Mint. Install it from the signed Icenux repository and updates arrive with <code>apt upgrade</code>. The package is small, the dependency list is one package long, and the binary is on your PATH immediately.</p>
+            <p>Packaged for Debian, Ubuntu and Linux Mint, with an Arch Linux package below. Install it from the signed Icenux repository and updates arrive with <code>apt upgrade</code>. The package is small, the dependency list is one package long, and the binary is on your PATH immediately.</p>
             <div class="download-actions">
               <a class="btn btn--primary" href="https://github.com/Icenux/Live-M/releases/latest/download/livem_all.deb" download>Download .deb <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               <a class="btn btn--ghost" href="https://github.com/Icenux/Live-M/releases" target="_blank" rel="noopener">All releases ↗</a>
             </div>
-            <p class="download-note">Requires Linux, Python 3.8+ and <code>python3-psutil</code>.</p>
+            <p class="download-note">Requires Linux, Python 3.10+ and <code>python3-psutil</code>.</p>
             <p class="download-note">Every release ships a signed <code>SHA256SUMS</code> next to the package.</p>
           </div>
 {% capture live_apt %}sudo curl -fsSL https://icenux.github.io/icenux/icenux.asc -o /usr/share/keyrings/icenux.asc
@@ -177,8 +199,8 @@ livem{% endcapture %}
 
         <div class="spec-grid reveal">
           <div class="spec"><span>Package</span><strong>livem {{ app.version }}</strong><small>Signed APT package</small></div>
-          <div class="spec"><span>Runs on</span><strong>Debian · Ubuntu · Mint</strong><small>Other distributions from source</small></div>
-          <div class="spec"><span>Dependency</span><strong>python3-psutil</strong><small>Plus Python 3.8 or newer</small></div>
+          <div class="spec"><span>Runs on</span><strong>Any Linux</strong><small>Packages for Debian, Ubuntu, Mint and Arch</small></div>
+          <div class="spec"><span>Dependency</span><strong>python3-psutil</strong><small>Plus Python 3.10 or newer</small></div>
           <div class="spec"><span>License</span><strong>MIT</strong><small>Free to use and modify</small></div>
         </div>
 
