@@ -69,8 +69,8 @@
   preview:
     src: "assets/apps/sway-desktop-stats/card.webp"
     alt: "Sway Desktop Stats panel"
-    width: 560
-    height: 315
+    width: 514
+    height: 289
     portrait: false
 
 - slug: "ccc"
