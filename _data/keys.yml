@@ -23,3 +23,6 @@ sway-desktop-stats:
 sgc-screensaver:
   fingerprint: "9A97 F6C8 A2EC 7695 9187  4366 B9C5 9E43 05B9 CA8D"
   key_file: "sgc-screensaver.asc"
+sound:
+  fingerprint: "2F08 0A14 8EDF D794 5B12  797E 2560 E766 1934 1805"
+  key_file: "sound.asc"
