@@ -3399,6 +3399,11 @@ ul, ol {
   text-underline-offset: 3px;
 }
 
+/* sound */
+.app-card__icon--sound { color: #fb7185; background: rgba(251, 113, 133, 0.08); }
+.app-tag__icon--sound { color: #fb7185; background: rgba(251, 113, 133, 0.1); }
+.next-app__icon--sound { color: #fb7185; background: rgba(251, 113, 133, 0.09); }
+
 /* displays and SGC Screensaver */
 .app-card__icon--displays { color: #5eead4; background: rgba(94, 234, 212, 0.08); }
 .app-card__icon--sgc { color: #fcd34d; background: rgba(252, 211, 77, 0.08); }
