@@ -170,6 +170,32 @@
     height: 405
     portrait: false
 
+- slug: "sound"
+  name: "sound"
+  url: "/apps/sound/"
+  repo: "Icenux/sound"
+  version: "0.0.1"
+  released: "November 2026"
+  tag: "0.0.1"
+  script_path: "sound"
+  sha256: ""
+  platform: "PipeWire / PulseAudio"
+  icon: "sound"
+  icon_svg: "<path d=\"M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z\"/><path d=\"M15.5 9a4 4 0 0 1 0 6\"/><path d=\"M18 6.5a7.5 7.5 0 0 1 0 11\"/>"
+  tagline: "Terminal UI for switching your audio output on PipeWire and PulseAudio — speakers, HDMI, Bluetooth, USB — with a keypress."
+  kind: "Audio tool · Bash"
+  blurb: "Switch the audio output from the terminal"
+  search_icon: "terminal"
+  search_desc: "Terminal UI for switching the default audio output on PipeWire and PulseAudio — lists every output, moves playing streams, scriptable"
+  download_title: "Install sound"
+  download_desc: "Copy the sound script to your PATH"
+  preview:
+    src: "assets/apps/sound/card.webp"
+    alt: "sound listing the audio outputs"
+    width: 720
+    height: 405
+    portrait: false
+
 - slug: "sgc-screensaver"
   name: "SGC Screensaver"
   url: "/apps/sgc-screensaver/"

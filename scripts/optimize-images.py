@@ -25,6 +25,7 @@ THUMBS = {
     'sway-desktop-stats': 'widget',
     'ccc': 'conversations',
     'displays': 'screenshot',
+    'sound': 'screenshot',
     'sgc-screensaver': 'screenshot',
     'wpview': 'viewer',
 }

@@ -1,0 +1,216 @@
+---
+title: "sound — audio output switcher for PipeWire and PulseAudio | Icenux"
+description: "sound is a terminal UI for switching the default audio output on PipeWire and PulseAudio: it lists every output, switches with a keypress and moves playing streams along."
+permalink: /apps/sound/
+nav: apps
+og_type: article
+app: sound
+next: [displays, scrv]
+---
+{% assign app = site.data.apps | where: "slug", page.app | first %}
+    <section class="app-hero">
+      <div class="container">
+        <a class="back-link" href="/apps/">← All apps</a>
+        <div class="app-hero__inner">
+          <div class="app-hero__copy">
+            <span class="app-tag"><span class="app-tag__icon app-tag__icon--sound"><svg viewBox="0 0 24 24" aria-hidden="true">{{ app.icon_svg }}</svg></span>Audio tool</span>
+            <h1>sound<span class="dot-end">.</span></h1>
+            <p class="lede">Your audio output, from the terminal. Speakers, monitor, Bluetooth — one keypress.</p>
+            <p class="app-hero__text">A terminal UI for PipeWire and PulseAudio: it lists every output that is connected right now, switches the default with a key and moves the apps that are already playing. Nothing changes until you press a key.</p>
+            <div class="app-hero__actions">
+              <a class="btn btn--primary" href="#download">Install sound <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="https://github.com/{{ app.repo }}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z" fill="currentColor"/></svg> GitHub</a>
+            </div>
+            <ul class="app-facts">
+              <li><span>Version</span><strong>{{ app.version }}</strong></li>
+              <li><span>Platform</span><strong>PipeWire / PulseAudio</strong></li>
+              <li><span>Written in</span><strong>Bash</strong></li>
+              <li><span>License</span><strong>MIT</strong></li>
+            </ul>
+          </div>
+          <figure class="app-hero__shot">
+            <div class="shot-frame shot-frame--terminal">
+              <div class="shot-frame__bar">
+                <span class="shot-frame__dots"><i></i><i></i><i></i></span>
+                <span class="shot-frame__title">sound — terminal</span>
+                <span class="shot-frame__badge">{{ app.version }}</span>
+              </div>
+              <img src="/assets/apps/sound/screenshot.webp" alt="sound listing the audio outputs: built-in speakers and an HDMI monitor, with port and volume" width="1824" height="1034">
+            </div>
+            <figcaption>Every output with its port and volume — the keys are listed at the bottom.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="kicker">What it does</span>
+            <h2>List. Switch.<br>Done<span class="dot-end">.</span></h2>
+          </div>
+          <p>It only talks to the sound server, so it does not care about your desktop: Sway, Hyprland, GNOME, KDE, X11 or Wayland.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+            </span>
+            <h3>Every output</h3>
+            <p>Speakers, HDMI or DisplayPort monitors, Bluetooth and USB devices, each with its port, volume and state (muted, unplugged).</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+            <h3>One key</h3>
+            <p><code>Enter</code> on the selected output, or <code>1</code>–<code>9</code> to jump straight to output N. Nothing happens before you press a key.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M4 12h16M4 17h10"/><path d="m17 5 3 2-3 2"/></svg>
+            </span>
+            <h3>Streams follow</h3>
+            <p>Apps that are already playing move to the new output instead of staying on the old one.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4 4 0 0 1 0 6"/></svg>
+            </span>
+            <h3>Never silent</h3>
+            <p>The new output is unmuted on switch, so “switched” never means silence. <code>m</code> mutes or unmutes the selected one.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>
+            </span>
+            <h3>Always current</h3>
+            <p>The list is re-read on start, on every keypress and every 2 seconds, so a monitor or speaker you connect while it is open simply shows up.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg>
+            </span>
+            <h3>Scriptable</h3>
+            <p><code>sound next</code> and <code>sound set hdmi</code> work without the UI — ready for a keybinding or a status bar click.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section app-section--why">
+      <div class="container">
+        <div class="why-panel reveal">
+          <div>
+            <span class="kicker">Why not pactl</span>
+            <h2>No more<br>sink names<span class="dot-end">.</span></h2>
+          </div>
+          <div class="why-panel__body">
+            <p><code>pactl set-default-sink</code> needs the exact sink name and leaves streams that are already playing where they are, and <code>pavucontrol</code> is a whole mixer window for a one-key job. sound lists what is connected right now, switches the default, moves the streams and unmutes — and stays out of the way in a terminal.</p>
+            <ul class="check-list check-list--two">
+              <li><strong>PipeWire</strong> through <code>pipewire-pulse</code>, or <strong>PulseAudio</strong></li>
+              <li>Needs <code>pactl</code> 16 or newer (JSON output), <code>jq</code>, bash 4+ and <code>tput</code></li>
+              <li>Debian 12, Ubuntu 24.04 and newer ship a recent enough <code>pactl</code></li>
+              <li><code>sound list</code> marks the default output with <code>*</code></li>
+              <li><code>sound set</code> takes a number, a sink name or part of the description</li>
+              <li>One Bash script, no daemon, no config file</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section" id="screenshots">
+      <div class="container">
+        <div class="section__head reveal">
+          <div>
+            <span class="kicker">Screenshot</span>
+            <h2>One list<span class="dot-end">.</span></h2>
+          </div>
+          <p>The filled dot marks the default output, the highlighted row is the selection.</p>
+        </div>
+        <div class="shots">
+          <figure class="shot reveal">
+            <img src="/assets/apps/sound/screenshot.webp" alt="sound listing the audio outputs: built-in speakers and an HDMI monitor" width="1824" height="1034" loading="lazy">
+            <figcaption>The built-in speakers and an HDMI monitor, with port and volume.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-section" id="download">
+      <div class="container">
+        <div class="download-panel reveal">
+          <div class="download-panel__copy">
+            <span class="kicker">Install</span>
+            <h2>Install sound<span class="dot-end">.</span></h2>
+            <p>A single Bash script. Copy it to a directory on your <code>PATH</code> and run <code>sound</code>. It needs <code>pactl</code> 16 or newer, <code>jq</code> and a running PipeWire or PulseAudio.</p>
+            <div class="download-actions">
+              <a class="btn btn--primary" href="https://raw.githubusercontent.com/{{ app.repo }}/{{ app.tag }}/sound" download>Download script <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--ghost" href="https://github.com/{{ app.repo }}/releases/latest" target="_blank" rel="noopener">Releases ↗</a>
+            </div>
+            <p class="download-note">Assumes <code>~/.local/bin</code> is on your <code>PATH</code>.</p>
+            <p class="download-note">SHA-256 of <code>sound</code> at {{ app.tag }}: <code class="hash">{{ app.sha256 }}</code></p>
+          </div>
+          <div class="install-card">
+            <div class="install-card__head">
+              <span>Install and run</span>
+              <button class="copy-btn" type="button" data-copy="git clone --branch {{ app.tag }} https://github.com/{{ app.repo }}.git
+cd sound
+cp sound ~/.local/bin/
+chmod +x ~/.local/bin/sound
+sound" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+            </div>
+            <pre><code>git clone --branch {{ app.tag }} https://github.com/{{ app.repo }}.git
+cd sound
+cp sound ~/.local/bin/
+chmod +x ~/.local/bin/sound
+sound</code></pre>
+            <p class="install-card__foot">The checkout is pinned to the release tag.</p>
+          </div>
+        </div>
+
+{% include apt-install.html slug="sound" pkg="sound" after="sound" note="The package pulls in <code>jq</code> and <code>pulseaudio-utils</code> (<code>pactl</code>)." %}
+
+        <div class="install-list reveal">
+          <h3 class="install-list__title">Keys</h3>
+          <div class="install-row">
+            <div class="install-row__head">
+              <span>Controls</span>
+            </div>
+            <pre><code>up/down  select an output (also j / k)
+1-9      switch to output N
+Enter    switch to the selected output
+m        mute / unmute the selected output
+r        reload the list
+q        quit
+
+sound list            list outputs
+sound next            switch to the next output
+sound set hdmi        by number, name or part of the description</code></pre>
+            <p class="install-row__note">The default output is stored by your sound server, so your choice survives a restart. <code>sound next</code> makes a good keybinding.</p>
+          </div>
+        </div>
+
+        <div class="spec-grid reveal">
+          <div class="spec"><span>Latest release</span><strong>{{ app.version }}</strong><small>{{ app.released }}</small></div>
+          <div class="spec"><span>Sound servers</span><strong>PipeWire · PulseAudio</strong><small>Any desktop</small></div>
+          <div class="spec"><span>Requires</span><strong>pactl 16+</strong><small>Plus jq and bash 4</small></div>
+          <div class="spec"><span>License</span><strong>MIT</strong><small>Free to use and modify</small></div>
+        </div>
+
+        <p class="feedback-note reveal">Found a bug or have an idea? <a href="https://github.com/{{ app.repo }}/issues" target="_blank" rel="noopener">Open an issue on GitHub ↗</a></p>
+      </div>
+    </section>
+
+    <section class="app-section app-section--next">
+      <div class="container">
+        <div class="app-next reveal">
+          <span class="kicker">Keep exploring</span>
+          <div class="app-next__grid">
+          {% include next-apps.html %}
+          </div>
+        </div>
+      </div>
+    </section>
