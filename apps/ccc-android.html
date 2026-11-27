@@ -76,6 +76,27 @@ next: [ccc, repo-doctor]
           </article>
           <article class="feature reveal">
             <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></svg>
+            </span>
+            <h3>Notes</h3>
+            <p>Your ccc notes on the phone: list, search, write in Markdown with a preview, rename and delete. A note changed on the computer meanwhile is never overwritten — your edit is saved next to it.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M12 7v5M12 12 6 17M12 12l6 5"/></svg>
+            </span>
+            <h3>Subagents</h3>
+            <p>See what a conversation’s subagents did: a list of runs with a timeline, and for each one its prompt, steps and result.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v12a3 3 0 0 0 3 3h6"/><path d="m12 15 3 3-3 3"/><circle cx="6" cy="3" r="1.5"/></svg>
+            </span>
+            <h3>Routines, reviews, goals</h3>
+            <p>Turn routines on and off, ask for a review, and start or follow a goal loop or a workflow from the phone.</p>
+          </article>
+          <article class="feature reveal">
+            <span class="feature__icon">
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </span>
             <h3>Private by design</h3>
@@ -119,7 +140,7 @@ next: [ccc, repo-doctor]
             <h2>Install ccc Android<span class="dot-end">.</span></h2>
             <p>Needs Android 10 or newer and a running <a href="/apps/ccc/">ccc TUI</a> on your computer with its API turned on (<code>--api</code>). Open the APK on the phone — Android asks once to allow installs from that source.</p>
             <div class="download-actions">
-              <a class="btn btn--primary" href="https://github.com/Icenux/ccc_android/releases/latest/download/ccc.apk" download>Download .apk <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--primary" href="https://github.com/Icenux/ccc_android/releases/download/{{ app.tag }}/ccc_{{ app.version }}.apk" download>Download .apk <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               <a class="btn btn--ghost" href="https://github.com/Icenux/ccc_android/releases/latest" target="_blank" rel="noopener">All releases ↗</a>
             </div>
           </div>
@@ -140,12 +161,12 @@ next: [ccc, repo-doctor]
               <span>Check the checksum and signatures</span>
               <button class="copy-btn" type="button" data-copy="sha256sum -c SHA256SUMS
 gpg --import release-signing-key.asc &amp;&amp; gpg --verify SHA256SUMS.asc SHA256SUMS
-apksigner verify --print-certs ccc.apk" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
+apksigner verify --print-certs ccc_{{ app.version }}.apk" aria-label="Copy command"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Copy</span></button>
             </div>
             <pre><code>sha256sum -c SHA256SUMS
 gpg --import release-signing-key.asc &amp;&amp; gpg --verify SHA256SUMS.asc SHA256SUMS
-apksigner verify --print-certs ccc.apk</code></pre>
-            <p class="install-row__note">Download <code>ccc.apk</code>, <code>SHA256SUMS</code> and <code>SHA256SUMS.asc</code> from the release and <code>release-signing-key.asc</code> from the <a href="https://github.com/Icenux/ccc_android/blob/main/release-signing-key.asc" target="_blank" rel="noopener">ccc_android repository</a>. The GPG key's fingerprint must be <code class="hash">{{ site.data.keys.ccc.fingerprint }}</code>.</p>
+apksigner verify --print-certs ccc_{{ app.version }}.apk</code></pre>
+            <p class="install-row__note">Download <code>ccc_{{ app.version }}.apk</code>, <code>SHA256SUMS</code> and <code>SHA256SUMS.asc</code> from the release and <code>release-signing-key.asc</code> from the <a href="https://github.com/Icenux/ccc_android/blob/main/release-signing-key.asc" target="_blank" rel="noopener">ccc_android repository</a>. The GPG key's fingerprint must be <code class="hash">{{ site.data.keys.ccc.fingerprint }}</code>.</p>
             <p class="install-row__note">The signing certificate SHA-256 of the app is <code class="hash">81:60:8A:DC:97:06:A5:5E:B8:7D:8D:65:52:D7:2A:D8:FD:01:DE:C7:51:A3:51:BB:CF:B1:9E:58:E1:89:8D:14</code>. It is also listed in the <a href="https://github.com/Icenux/ccc_android#install" target="_blank" rel="noopener">ccc_android README</a>.</p>
           </div>
         </div>
